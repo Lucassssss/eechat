@@ -37,7 +37,7 @@
     "@types/node": "^22.13.1",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.20",
-    "electron": "^29.1.1",
+    "electron": "^35.1.2",
     "electron-builder": "^24.13.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.4.2",
