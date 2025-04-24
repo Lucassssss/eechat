@@ -50,7 +50,7 @@
     "egg-bin": "6",
     "egg-mock": "5",
     "electron": "^29.1.1",
-    "electron-builder": "^24.13.3",
+    "electron-builder": "^26.0.12",
     "eslint": "8",
     "eslint-config-egg": "13",
     "glob": "^11.0.1",
