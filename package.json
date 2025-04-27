@@ -49,7 +49,7 @@
     "autoprefixer": "^10.4.20",
     "egg-bin": "6",
     "egg-mock": "5",
-    "electron": "^29.1.1",
+    "electron": "^35.2.1",
     "electron-builder": "^24.13.3",
     "eslint": "8",
     "eslint-config-egg": "13",
