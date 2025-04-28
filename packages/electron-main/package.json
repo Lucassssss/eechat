@@ -6,12 +6,14 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "start": "tsc && electron dist/index.js"
   },
   "dependencies": {
     "@eechat/knowledge": "workspace:*",
     "electron": "^29.1.1",
     "electron-updater": "^6.3.9",
+    "electron-log": "^5.3.2",
     "@supabase/supabase-js": "^2.49.1",
     "node-machine-id": "^1.1.12"
   }

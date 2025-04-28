@@ -24,7 +24,9 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "tsc -w -p packages/electron-main/tsconfig.json",
+    "build": "tsc -p packages/electron-main/tsconfig.json",
+    "start": "pnpm run build && electron packages/electron-main/dist/index.js",
     "dev:server": "cd electron/server && egg-bin dev",
     "dev:packages": "pnpm run -r dev",
     "build:packages": "pnpm run -r build",
@@ -43,9 +45,8 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "turbo": "^2.5.2",
     "typescript": "^5.4.2"
   },
-  "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387",
-  "dependencies": {
-  }
+  "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387"
 }
