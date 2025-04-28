@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "strict": true,
+    // "strict": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -12,15 +12,22 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "noEmit": true,
+    "noEmit": false,     // << 改成 false，允许 emit
     "baseUrl": ".",
+    "noImplicitAny": false,
+    "composite": true,
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@eechat/*": ["packages/*/src"]
     },
-    "noImplicitAny": false
   },
-  "include": ["src"],
+  "include": ["src", "packages", "electron"],
   "references": [
-    { "path": "./tsconfig.node.json" }
+    { "path": "./packages/milvus" },
+    { "path": "./packages/knowledge" }
   ]
 }

@@ -25,6 +25,7 @@ import {
   Plus,
   Sparkles,
   Compass,
+  BookOpen,
 } from 'lucide-vue-next'
 import Updater from '@/components/Updater.vue'
 import { h, ref, onMounted, computed } from 'vue'
@@ -49,6 +50,12 @@ const data = {
       title: t('chat.newChat'),
       url: '/',
       icon: Inbox,
+      isActive: false,
+    },
+    {
+      title: t('chat.knowledgeBase.title'),
+      url: '/knowledgeBase',
+      icon: BookOpen,
       isActive: false,
     },
     {

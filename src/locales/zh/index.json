@@ -59,6 +59,9 @@
     },
     "mcp": {
       "title": "MCP"
+    },
+    "knowledgeBase": {
+      "title": "知识库"
     }
   },
   "discover": {

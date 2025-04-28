@@ -1,0 +1,19 @@
+{
+  "name": "@eechat/knowledge",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@eechat/milvus": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "rimraf": "^5.0.0"
+  }
+}

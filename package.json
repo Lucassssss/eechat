@@ -26,6 +26,9 @@
   "scripts": {
     "dev": "vite",
     "dev:server": "cd electron/server && egg-bin dev",
+    "dev:packages": "pnpm run -r dev",
+    "build:packages": "pnpm run -r build",
+    "clean:packages": "pnpm run -r clean",
     "build:win": "vue-tsc --noEmit && vite build && electron-builder --publish always --win",
     "package": "vue-tsc --noEmit && vite build && electron-builder",
     "build:mac": "vue-tsc --noEmit && vite build && electron-builder --publish always --mac",
@@ -71,6 +74,7 @@
   },
   "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387",
   "dependencies": {
+    "@eechat/knowledge": "workspace:*",
     "@analytics/google-analytics": "^1.1.0",
     "@modelcontextprotocol/sdk": "^1.9.0",
     "@supabase/supabase-js": "^2.49.1",

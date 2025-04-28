@@ -9,6 +9,7 @@ import { AppUpdater, registerUpdaterHandlers } from './updater'
 import { Playground } from './playground/playground'
 import { Analytics } from './analytics'
 import { Ipc } from './ipc'
+import { KnowledgeBase } from '@eechat/knowledge'
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -171,6 +172,8 @@ app.whenReady().then(async () => {
     createWindow()
     await startEggServer('')
     initUpdate()
+    const knowledgeBase = new KnowledgeBase()
+    await knowledgeBase.embedText('你好')
     const playground = new Playground(win)
   } catch (error) {
     console.error('Failed to start EggJS server:', error)
