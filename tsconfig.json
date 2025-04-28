@@ -5,7 +5,6 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     // "strict": true,
-    "jsx": "preserve",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -17,11 +16,12 @@
     "noImplicitAny": false,
     "composite": true,
     "declaration": true,
-    "sourceMap": true,
-    "declarationMap": true,
+    // "sourceMap": true,
+    // "declarationMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
     "emitDeclarationOnly": false,
     "paths": {
-      "@/*": ["./src/*"],
       "@eechat/*": ["packages/*/src"]
     },
   },

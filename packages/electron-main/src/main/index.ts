@@ -169,6 +169,7 @@ const initUpdate = () => {
 // 在 app ready 时启动 EggJS
 app.whenReady().then(async () => {
   try {
+    console.log('[APP] app ready')
     createWindow()
     await startEggServer('')
     initUpdate()

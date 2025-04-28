@@ -40,7 +40,7 @@ const props = defineProps({
     default: '',
   },
   editModel: {
-    type: Object as () => Model | null,
+    type: Object as () => Model | null | number,
     default: null
   },
   editButton: {

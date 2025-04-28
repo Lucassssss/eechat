@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    // "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "strict": false,
+    "baseUrl": ".",
+    // "suppressImplicitAnyIndexErrors": true, 
+    "noPropertyAccessFromIndexSignature": false,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noImplicitAny": false
+  },
+  "include": ["src"],
+  "references": [
+    // { "path": "./tsconfig.node.json" }
+  ]
+}
