@@ -5,9 +5,9 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w",
-    "start": "tsc && electron dist/index.js"
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "vite build && electron dist/index.cjs"
   },
   "dependencies": {
     "@eechat/knowledge": "workspace:*",

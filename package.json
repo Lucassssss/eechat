@@ -24,7 +24,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "tsc -w -p packages/electron-main/tsconfig.json",
+    "dev": "tsc -w -p packages/electron-main/tsconfig.json && electron packages/electron-main/dist/index.js",
     "build": "tsc -p packages/electron-main/tsconfig.json",
     "start": "pnpm run build && electron packages/electron-main/dist/index.js",
     "dev:server": "cd electron/server && egg-bin dev",
@@ -45,6 +45,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "tsup": "^8.4.0",
     "turbo": "^2.5.2",
     "typescript": "^5.4.2"
   },

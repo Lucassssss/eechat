@@ -2,11 +2,29 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": ".",
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@eechat/*": ["../../packages/*/src"]
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
   },
-  "include": ["src", "@eechat/*/src"],
+  "include": [
+    "src/**/*"
+  ],
   "references": [
     { "path": "../milvus" },
-    { "path": "../knowledge" },
+    { "path": "../knowledge" }
   ]
 }
