@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "noEmit": false,     // << 改成 false，允许 emit
+    "noEmit": false,
     "baseUrl": ".",
     "noImplicitAny": false,
     "composite": true,
