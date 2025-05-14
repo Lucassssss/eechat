@@ -60,7 +60,7 @@ const formData = reactive<Model>({
   provider_id: props.provider_id,
   state: true,
   name: "",
-  group_name: "自定义分组",
+  group_name: "",
   capabilities: ['llm']
 })
 
@@ -69,7 +69,7 @@ watch(() => props.editModel, (model) => {
     formData.provider_id = model.provider_id || props.provider_id
     formData.state = model.state !== undefined ? model.state : true
     formData.name = model.name || ""
-    formData.group_name = model.group_name || "自定义分组"
+    formData.group_name = model.group_name || ""
     formData.capabilities = model.capabilities || ['llm']
     formData.id = model.id || ""
   }
@@ -91,7 +91,7 @@ const resetForm = () => {
     formData.provider_id = props.editModel.provider_id || props.provider_id
     formData.state = props.editModel.state !== undefined ? props.editModel.state : true
     formData.name = props.editModel.name || ""
-    formData.group_name = props.editModel.group_name || "自定义分组"
+    formData.group_name = props.editModel.group_name || ""
     formData.capabilities = props.editModel.capabilities || ['llm']
   } else {
     // 添加模式下，重置为默认值
@@ -99,7 +99,7 @@ const resetForm = () => {
     formData.state = true
     formData.id = ""
     formData.name = ""
-    formData.group_name = "自定义分组"
+    formData.group_name = ""
     formData.capabilities = ['llm']
   }
 }
@@ -189,80 +189,89 @@ if (index === -1) {
         </Button>
         <Button v-else variant="outline" size="sm" @click="openDialog">
           <Plus class="h-4 w-4" />
-          新增模型
+          {{ t('settings.apiModel.addCustomModelDialog.titleAdd') }}
         </Button>
       </DialogTrigger>
+
       <DialogContent class="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>{{ dialogTitle }}</DialogTitle>
+          <DialogTitle>
+            {{ isEditMode ? t('settings.apiModel.addCustomModelDialog.titleEdit') : t('settings.apiModel.addCustomModelDialog.titleAdd') }}
+          </DialogTitle>
           <DialogDescription>
-            {{ dialogDescription }}
+            {{ isEditMode ? t('settings.apiModel.addCustomModelDialog.descEdit') : t('settings.apiModel.addCustomModelDialog.descAdd') }}
           </DialogDescription>
         </DialogHeader>
+
         <div class="grid gap-4 py-4">
           <div class="grid grid-cols-4 items-center gap-4">
-            <Label class="text-right" for="id">
-              模型ID
-            </Label>
-            <Input
-              id="id"
-              v-model="formData.id"
-              class="col-span-3"
-            />
+            <Label class="text-right" for="id">{{ t('settings.apiModel.addCustomModelDialog.modelId') }}</Label>
+            <Input id="id" v-model="formData.id" class="col-span-3" />
           </div>
+
           <div class="grid grid-cols-4 items-center gap-4">
-            <Label class="text-right" for="name">
-              模型名称
-            </Label>
-            <Input
-              id="name"
-              v-model="formData.name"
-              class="col-span-3"
-            />
+            <Label class="text-right" for="name">{{ t('settings.apiModel.addCustomModelDialog.modelName') }}</Label>
+            <Input id="name" v-model="formData.name" class="col-span-3" />
           </div>
+
           <div class="grid grid-cols-4 items-center gap-4">
-            <Label class="text-right" for="group_name">
-              分组名称
-            </Label>
-            <Input
-              id="name"
-              v-model="formData.group_name"
-              class="col-span-3"
-            />
+            <Label class="text-right" for="group_name">{{ t('settings.apiModel.addCustomModelDialog.groupName') }}</Label>
+            <Input id="group_name" v-model="formData.group_name" class="col-span-3" />
           </div>
-          <div class="grid grid-cols-4 gap-4 mt-2 ">
-              <Label class="text-right" for="name">模型能力</Label>
-              <div class="space-y-3 col-span-3" >
-                <div v-for="capability in MODEL_CAPABILITIES" :key="capability.value" class="flex items-center space-x-2">
-                  <Checkbox 
-                    :id="capability.value" 
-                    :model-value="formData.capabilities.includes(capability.value)"
-                    @update:model-value="toggleCapability(capability.value)" 
-                  />
-                  <label :for="capability.value" class="w-full text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <span>{{ capability.label[currentLang.toLowerCase().startsWith('zh') ? 'zh' : 'en'] }}
-                          ({{capability.value}})</span>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>{{ capability.description[currentLang.toLowerCase().startsWith('zh') ? 'zh' : 'en'] }}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </label>
-                </div>
+
+          <div class="grid grid-cols-4 gap-4 mt-2">
+            <Label class="text-right">{{ t('settings.apiModel.addCustomModelDialog.capabilities') }}</Label>
+            <div class="space-y-3 col-span-3">
+              <div
+                v-for="capability in MODEL_CAPABILITIES"
+                :key="capability.value"
+                class="flex items-center space-x-2"
+              >
+                <Checkbox
+                  :id="capability.value"
+                  :model-value="formData.capabilities.includes(capability.value)"
+                  @update:model-value="toggleCapability(capability.value)"
+                />
+                <label :for="capability.value" class="w-full text-sm font-medium leading-none">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger as-child>
+                        <span>
+                          {{
+                            capability.label[
+                              currentLang.toLowerCase().startsWith('zh') ? 'zh' : 'en'
+                            ]
+                          }} ({{ capability.value }})
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>
+                          {{
+                            capability.description[
+                              currentLang.toLowerCase().startsWith('zh') ? 'zh' : 'en'
+                            ]
+                          }}
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </label>
               </div>
             </div>
+          </div>
         </div>
+
         <DialogFooter>
           <Button type="button" variant="outline" @click="isOpen = false">
             {{ t('common.cancel') }}
           </Button>
           <Button type="submit" @click="handleSubmit" :disabled="isLoading">
             <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
-            {{ buttonText }}
+            {{
+              isEditMode
+                ? t('settings.apiModel.addCustomModelDialog.update')
+                : t('settings.apiModel.addCustomModelDialog.save')
+            }}
           </Button>
         </DialogFooter>
       </DialogContent>

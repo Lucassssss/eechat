@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
+import { useI18n } from "vue-i18n"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +13,7 @@ import { useColorMode } from '@vueuse/core'
 
 // Pass { disableTransition: false } to enable transitions
 const mode = useColorMode()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -33,9 +35,9 @@ const mode = useColorMode()
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
-      <DropdownMenuItem @click="mode = 'light'"> Light </DropdownMenuItem>
-      <DropdownMenuItem @click="mode = 'dark'"> Dark </DropdownMenuItem>
-      <DropdownMenuItem @click="mode = 'auto'"> System </DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'light'">{{ t('chat.theme.light') }}</DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'dark'">{{ t('chat.theme.dark') }}</DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'auto'">{{ t('chat.theme.system') }}</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
 </template>

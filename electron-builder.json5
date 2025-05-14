@@ -3,7 +3,7 @@
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
   "appId": "ee.chat.na",
   "asar": true,
-  "productName": "eechat",
+  "productName": "Xavi9",
   "directories": {
     "output": "release/${version}"
   },

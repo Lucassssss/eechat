@@ -173,13 +173,15 @@ onMounted( () => {
             </div>
             <!-- model -->
             <div v-if="key === 'local' && value.models.length == 0">
-              <div class="ml-4 text-sm">
-                {{ t('settings.modelSelect.noLocalModel') }}<Button
+              <div class="ml-4 text-sm flex items-center">
+                <span>{{ t('settings.modelSelect.noLocalModel') }}</span>
+                <Button
                   variant="link"
-                  class="p-0 text-blue-500"
+                  class="p-0 text-blue-500 ml-1"
                   @click="handleConfigModel('local')"
-                  >{{ t('settings.modelSelect.configureModel') }}</Button
                 >
+                  {{ t('settings.modelSelect.configureModel') }}
+                </Button>
               </div>
             </div>
             <div

@@ -97,7 +97,7 @@ const processedFormalContent = computed(() => {
 <template>
   <div class="last:min-h-[calc(100dvh-300px)] msg-item relative group/item">
     <!-- <div
-      v-if="message == 'eechat:thinking'"
+      v-if="message == 'xavi9:thinking'"
       class="bg-gray-100 dark:bg-primary-foreground dark:text-white rounded-lg p-2 flex items-center w-[110px] justify-center"
     >
       <LoaderCircle class="animate-spin w-4 h-4"></LoaderCircle>

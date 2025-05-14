@@ -1,0 +1,393 @@
+{
+  "common": {
+    "ok": "D'acord",
+    "cancel": "Cancel·lar",
+    "save": "Desar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "loading": "Carregant...",
+    "error": "Error",
+    "success": "Èxit",
+    "copy": "Copiar",
+    "timeGroup": {
+      "today": "Avui",
+      "yesterday": "Ahir",
+      "within7days": "Darrers 7 dies",
+      "within30days": "Darrers 30 dies",
+      "monthFormat": "MMMM",
+      "yearMonthFormat": "MMMM YYYY"
+    }
+  },
+  "chat": {
+    "scrollToBottom": "Desplaçar al final",
+    "newChat": "Xat",
+    "send": "Enviar",
+    "typing": "Escrivint...",
+    "thinking": "Pensant...",
+    "clearConversation": "Netejar conversa",
+    "exportConversation": "Exportar conversa",
+    "inputPlaceholder": "Escriu un missatge, prem Enter per enviar, Maj + Enter per nova línia",
+    "settings": {
+      "title": "Configuració",
+      "chatName": "Nom del xat",
+      "systemPrompt": "Prompt del sistema",
+      "rolePrompt": "Configuració de rol",
+      "editPrompt": "Editar prompt",
+      "creativity": "Creativitat",
+      "openness": "Obertura",
+      "expressiveness": "Expressivitat",
+      "vocabulary": "Vocabulari",
+      "saveSettings": "Desar configuració",
+      "saveSuccess": "Desat amb èxit"
+    },
+    "theme": {
+      "light": "Clar",
+      "dark": "Fosc",
+      "system": "Sistema"
+    },
+    "sidebar": {
+      "chat": "Xat",
+      "confirmDelete": "Confirmar eliminació del xat?",
+      "confirmDeleteDesc": "Aquesta acció eliminarà el xat \"{title}\", aquesta acció no es pot desfer.",
+      "deleting": "Eliminant...",
+      "confirmDeleteBtn": "Confirmar eliminació",
+      "newChat": "Nou xat",
+      "deleteSuccess": "Eliminació correcta",
+      "deleteSuccessDesc": "El xat \"{title}\" ha estat eliminat",
+      "deleteFailed": "Error en eliminar",
+      "unknownError": "Error desconegut"
+    },
+    "promptEditor": {
+      "title": "Editar prompt",
+      "placeholder": "Introdueix el teu prompt aquí..."
+    },
+    "discover": {
+      "title": "Descobrir"
+    },
+    "mcp": {
+      "title": "MCP"
+    }
+  },
+  "discover": {
+    "title": "Descobrir",
+    "searchPlaceholder": "Introdueix contingut per cercar...",
+    "mine": "Els meus assistents",
+    "assistant": "Assistant",
+    "pageTitle": "Explora assistents d'IA premium",
+    "pageDescription": "Utilitza aquestes plantilles d'aplicacions, o personalitza les teves basades en aquestes plantilles.",
+    "categories": {
+      "translation": "Traducció",
+      "all": "Tots",
+      "academic": "Acadèmic",
+      "copywriting": "Redacció",
+      "design": "Disseny",
+      "commercial": "Comercial",
+      "programming": "Programació",
+      "technology": "Tecnologia",
+      "music": "Música",
+      "openSource": "Codi obert",
+      "financial": "Financer",
+      "medical": "Mèdic",
+      "legal": "Legal",
+      "education": "Educació",
+      "entertainment": "Entreteniment",
+      "government": "Govern",
+      "other": "Altres"
+    },
+    "assistants": {
+      "frenchTranslator": {
+        "title": "Assistent de traducció al francès",
+        "description": "Assistent d'IA de traducció al francès amable, professional i empàtic",
+        "type": "Traducció",
+        "tags": [
+          "Traducció",
+          "Humor",
+          "Cultura"
+        ]
+      },
+      "codeHelper": {
+        "title": "Assistent de codi",
+        "description": "Assistent de programació professional expert en múltiples llenguatges i frameworks",
+        "type": "Programació",
+        "tags": [
+          "Programació",
+          "Depuració",
+          "Explicació"
+        ]
+      },
+      "englishWriting": {
+        "title": "Entrenador d'escriptura en anglès",
+        "description": "Proporciona orientació professional per a l'escriptura en anglès i suggeriments de revisió",
+        "type": "Educació",
+        "tags": [
+          "Escriptura",
+          "Anglès",
+          "Educació"
+        ]
+      },
+      "mentalHealth": {
+        "title": "Conseller de salut mental",
+        "description": "Assistent d'IA que proporciona suport emocional i consells de salut mental",
+        "type": "Salut",
+        "tags": [
+          "Mental",
+          "Emocional",
+          "Salut"
+        ]
+      },
+      "creativeWriting": {
+        "title": "Assistent d'escriptura creativa",
+        "description": "Genera inspiració, ajuda a crear novel·les, poesia i diversos continguts creatius",
+        "type": "Escriptura",
+        "tags": [
+          "Creativitat",
+          "Escriptura",
+          "Inspiració"
+        ]
+      },
+      "dataAnalysis": {
+        "title": "Expert en anàlisi de dades",
+        "description": "Assistent professional per a anàlisi de dades, estadístiques i visualització",
+        "type": "Dades",
+        "tags": [
+          "Dades",
+          "Anàlisi",
+          "Estadístiques"
+        ]
+      },
+      "travelPlanner": {
+        "title": "Planificador de viatges",
+        "description": "Ajuda a planificar rutes de viatge, recomanar atraccions i proporcionar consells de viatge",
+        "type": "Estil de vida",
+        "tags": [
+          "Viatges",
+          "Planificació",
+          "Consells"
+        ]
+      },
+      "dietitian": {
+        "title": "Assessor de dieta saludable",
+        "description": "Proporciona consells dietètics equilibrats i receptes saludables",
+        "type": "Salut",
+        "tags": [
+          "Dieta",
+          "Salut",
+          "Nutrició"
+        ]
+      },
+      "japaneseCoach": {
+        "title": "Entrenador d'aprenentatge japonès",
+        "description": "Orientació professional per a l'aprenentatge del japonès i company de pràctica",
+        "type": "Educació",
+        "tags": [
+          "Japonès",
+          "Aprenentatge",
+          "Idioma"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "modelFilter": {
+      "popular": "Populars",
+      "installed": "Instal·lats",
+      "searchPlaceholder": "deepseek..."
+    },
+    "title": "Configuració",
+    "language": "Idioma",
+    "theme": "Tema",
+    "apiSettings": "Configuració de l'API",
+    "modelSettings": "Configuració de models",
+    "configureInterface": "Configura la teva interfície",
+    "system": "Sistema",
+    "light": "Clar",
+    "dark": "Fosc",
+    "modelSelect": {
+      "selectModel": "Seleccionar model",
+      "noLocalModel": "No s'ha trobat cap model local",
+      "configureModel": "   Configurar",
+      "clickToConfig": "Fes clic per configurar el model",
+      "localModel": "Model local"
+    },
+    "apiModel": {
+      "modelProvider": "Proveïdor",
+      "connectionSuccess": "Connexió correcta",
+      "connectionSuccessDesc": "Connectat correctament a l'API",
+      "connectionFailed": "Connexió fallida",
+      "testConnection": "Provar connexió",
+      "testing": "Provant...",
+      "enableProvider": "Habilitar aquest proveïdor al xat",
+      "modelConfig": "Configuració del model",
+      "apiKey": "Clau API",
+      "apiUrl": "URL de l'API",
+      "connectivityCheck": "Verificació de connectivitat",
+      "selectModelToTest": "Selecciona un model per provar la connectivitat",
+      "availableModels": "Models disponibles",
+      "enableModel": "Habilitar aquest model al xat",
+      "addModel": "Afegir model",
+      "confirmDeleteModel": "Eliminar model",
+      "confirmDeleteModelDesc": "Estàs segur que vols eliminar aquest model? Aquesta acció no es pot desfer.",
+      "providerDialog": {
+        "addProviderTitle": "Afegir nou proveïdor",
+        "addProviderDesc": "Afegeix un proveïdor LLM personalitzat omplint la configuració necessària.",
+        "providerId": "ID del proveïdor",
+        "providerIdPlaceholder": "Ex: openai, anthropic",
+        "apiKey": "Clau API",
+        "apiUrl": "URL de l'API",
+        "state": "Estat",
+        "enabled": "Habilitat",
+        "disabled": "Deshabilitat",
+        "add": "Afegir",
+        "adding": "Afegint...",
+        "confirmDeleteTitle": "Confirmar eliminació",
+        "confirmDeleteDesc": "Segur que vols eliminar el proveïdor \"{provider}\"? Aquesta acció no es pot desfer i es suprimiran totes les configuracions de models associades.",
+        "confirmDelete": "Confirmar eliminació",
+        "deleting": "Eliminant..."
+      },
+      "addCustomModelDialog": {
+        "titleAdd": "Afegir model personalitzat",
+        "titleEdit": "Editar model personalitzat",
+        "descAdd": "Afegeix un nou model personalitzat proporcionant les dades necessàries.",
+        "descEdit": "Edita la configuració del model personalitzat.",
+        "modelId": "ID del model",
+        "modelName": "Nom del model",
+        "groupName": "Nom del grup",
+        "capabilities": "Capacitats del model",
+        "formError": "Error de formulari",
+        "formErrorDesc": "El nom del model és obligatori.",
+        "save": "Desar",
+        "update": "Actualitzar",
+        "addSuccess": "Model afegit",
+        "addSuccessDesc": "El model s'ha afegit correctament.",
+        "addFailed": "Error en afegir el model",
+        "updateSuccess": "Actualització correcta",
+        "updateSuccessDesc": "Model actualitzat correctament.",
+        "updateFailed": "Error en actualitzar el model"
+      }
+    },
+    "localModel": {
+      "serviceNotResponding": "El servei no respon",
+      "serviceRunningNormal": "Servei local funcionant normalment",
+      "installModelManager": "Instal·lar Gestor de Models",
+      "startModelManager": "Iniciar Gestor de Models",
+      "stopModelManager": "Aturar Gestor de Models",
+      "refreshStatus": "Actualitzar estat",
+      "modelManagement": "Gestió de models",
+      "moreModels": "Més models?",
+      "installed": "Instal·lat",
+      "confirmDeleteDesc": "Aquesta acció eliminarà el model {model}, hauràs de descarregar-lo de nou per utilitzar-lo.",
+      "deleting": "Eliminant...",
+      "confirmDelete": "Confirmar eliminació",
+      "downloadOllama": "Descarregar i instal·lar Ollama",
+      "downloadOllamaDesc": "Fes clic a confirmar per obrir el navegador i descarregar Ollama. Si us plau, reinicia el programari després de la instal·lació per verificar l'estat de la instal·lació.",
+      "downloadNow": "Descarregar ara",
+      "installSuccess": "Instal·lació de {model} correcta",
+      "installSuccessDesc": "El model s'ha instal·lat correctament. Pots començar a utilitzar-lo ara.",
+      "serviceNotRunning": "El Gestor de Models no està en execució",
+      "serviceNotInstalled": "El Gestor de Models no està instal·lat",
+      "syncModel": "Sincronitzar models d'Ollama",
+      "syncModelSuccess": "Sincronització de models correcta",
+      "syncModelSuccessDesc": "El model s'ha sincronitzat correctament. Pots començar a utilitzar-lo ara.",
+      "syncModelFailed": "Ha fallat la sincronització del model",
+      "syncModelFailedDesc": "Ha fallat la sincronització del model. Si us plau, verifica la teva connexió de xarxa."
+    },
+    "sidebar": {
+      "models": "Models",
+      "localModel": "Model local",
+      "apiModel": "Model API",
+      "general": "General",
+      "interface": "Interfície",
+      "about": "Quant a",
+      "data": "Dades",
+      "playground": "Àrea de proves"
+    },
+    "models": {
+      "localModel": "Model local",
+      "apiModel": "Configuració de model API"
+    },
+    "data": {
+      "title": "Gestió de dades",
+      "config": {
+        "title": "Configuració de dades",
+        "description": "Configurar arxius del sistema"
+      },
+      "database": {
+        "title": "Base de dades",
+        "description": "Pots fer còpies de seguretat/restaurar el contingut del xat a través d'aquest directori"
+      },
+      "executable": {
+        "title": "Arxius executables",
+        "description": "Per a entorns d'execució com bun/uv, afegeix manualment a aquest directori si la descàrrega falla"
+      },
+      "logs": {
+        "title": "Registres del sistema",
+        "description": "Registres de funcionament del sistema"
+      },
+      "openDirectory": "Obrir"
+    },
+    "about": {
+    "description": "Una eina LLM de desplegament local, senzilla i fàcil d'utilitzar.",
+    "star": "Valora amb una estrella",
+    "accelerate": "Accelerar el desenvolupament",
+    "contactTitle": "Contacta amb nosaltres",
+    "wechatGroup": "Grup de feedback a WeChat",
+    "contactDev": "Contactar amb el desenvolupador",
+    "businessTitle": "Personalització de programari / serveis comercials"
+    },
+    "devPlayground": {
+      "title": "Zona de proves per a desenvolupament",
+      "quit": "Sortir",
+      "reload": "Recarregar",
+      "serverPath": "Ruta del servidor",
+      "startEggServer": "Iniciar Egg Server",
+      "stopEggServer": "Aturar Egg Server",
+      "checkUpdate": "Comprovar actualització",
+      "downloadUpdate": "Descarregar actualització",
+      "installUpdate": "Instal·lar actualització",
+      "modelPath": "Ruta del model",
+      "initModel": "Inicialitzar model",
+      "inputMessage": "Escriure missatge",
+      "sendMessage": "Enviar missatge"
+    }
+  },
+  "mcp": {
+    "title": "Gestió de MCP",
+    "subtitle": "Gestiona i instal·la aplicacions MCP per millorar els teus assistents d'IA",
+    "helpDoc": "Documentació d'ajuda",
+    "installedTitle": "Aplicacions instal·lades",
+    "refresh": "Actualitzar",
+    "addNew": "Afegir nova aplicació",
+    "noInstalled": "No hi ha aplicacions MCP instal·lades. Fes clic a \"Afegir nova aplicació\" per començar.",
+    "loading": "Carregant llista d'aplicacions MCP...",
+    "recommendedTitle": "Aplicacions recomanades",
+    "viewMore": "Veure més",
+    "edit": "Edita configuració",
+    "delete": "Eliminar",
+    "confirmDeleteTitle": "Confirmar eliminació",
+    "confirmDeleteDesc": "Estàs segur que vols eliminar {name}? Aquesta acció no es pot desfer.",
+    "cancel": "Cancel·lar",
+    "deleteSuccess": "Eliminat correctament",
+    "deleteFail": "Error en eliminar",
+    "startSuccess": "Iniciat correctament",
+    "startFail": "Error en iniciar",
+    "stopSuccess": "Aturat correctament",
+    "stopFail": "Error en aturar",
+    "start": "Iniciar servei",
+    "stop": "Aturar servei",
+    "running": "En execució",
+    "stopped": "Aturat",
+    "installApp": "Instal·lar aquesta aplicació"
+  },
+  "downloadManager": {
+    "title": "Gestor de descàrregues",
+    "noTasks": "No hi ha tasques de descàrrega",
+    "status": {
+      "completed": "Completat",
+      "failed": "Error en la descàrrega",
+      "paused": "Pausat",
+      "canceled": "Cancel·lat",
+      "pending": "Pendent"
+    },
+    "error": "Error"
+  }
+}

@@ -50,54 +50,61 @@ import {
   Plus,
   EllipsisVertical,
 } from 'lucide-vue-next'
-import { h, ref, onMounted, toRaw,computed  } from 'vue'
+import { h, ref, onMounted, toRaw, computed, watch } from 'vue'
 import { chatApi } from '@/api/request'
 import Icon from '@/components/Icon.vue'
 import router from '@/router'
 import dayjs from 'dayjs'
+import { locale as dayjsLocale } from 'dayjs'
 import 'dayjs/locale/zh-cn'
+import 'dayjs/locale/es'
+import 'dayjs/locale/en'
+import 'dayjs/locale/ca'
 import { useSessionStore } from '@/stores/session'
 import { useEnvStore } from "@/stores/env"
-const envStore = useEnvStore()
 
+const { t, locale } = useI18n()
+const envStore = useEnvStore()
 const sessionStore = useSessionStore()
-// 设置语言为中文
-dayjs.locale('zh-cn')
+
+// sincronizar locale de dayjs con i18n
+watch(locale, (newLocale) => {
+  const map = {
+    'es-ES': 'es',
+    'ca-ES': 'ca',
+    'en-US': 'en',
+    'zh-CN': 'zh-cn',
+  }
+  dayjsLocale(map[newLocale] || 'en')
+}, { immediate: true })
+
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: 'icon',
 })
 
 const emit = defineEmits(['sessionChange'])
-
 const sessions = computed(() => sessionStore.sessions)
 const activeSessionId = computed(() => sessionStore.activeSessionId)
 
-// 创建新对话
 const createNewChat = async () => {
   try {
     const newSession = await sessionStore.createChat()
-    // emit('sessionChange', newSession)
   } catch (error) {
     console.error('Failed to create chat:', error)
   }
 }
 
-// 切换会话
 const handleSessionChange = session => {
   sessionStore.setActiveSession(session)
-  // emit('sessionChange', session)
 }
 
-// 删除会话
-const { t } = useI18n()
 const { toast } = useToast()
 const deleteLoading = ref(false)
 const sessionToDelete = ref<ChatSession | null>(null)
 
 const handleRemoveSession = item => {
   sessionToDelete.value = JSON.parse(JSON.stringify(item))
-  console.log(sessionToDelete.value)
 }
 
 const handleCancelDelete = () => {
@@ -111,7 +118,6 @@ const confirmDeleteSession = async () => {
   try {
     const res = await sessionStore.removeSession(sessionToDelete.value.id)
     if(res) {
-      // 如果还有其他会话，切换到第一个
       if (sessionStore.sessions.length > 0) {
         handleSessionChange(sessionStore.sessions[0])
       }
@@ -132,6 +138,7 @@ const confirmDeleteSession = async () => {
     sessionToDelete.value = null
   }
 }
+
 const activeSessionTitle = ref<string>('')
 onMounted( async () => {
   const localActiveSession = localStorage.getItem('activeSession')
@@ -143,7 +150,6 @@ onMounted( async () => {
   await sessionStore.fetchSessions()
 })
 
-// 添加时间分组函数
 const getTimeGroup = (date: string) => {
   const now = dayjs()
   const targetDate = dayjs(date)
@@ -153,17 +159,14 @@ const getTimeGroup = (date: string) => {
   if (diffDays === 1) return t('common.timeGroup.yesterday')
   if (diffDays <= 7) return t('common.timeGroup.within7days')
   if (diffDays <= 30) return t('common.timeGroup.within30days')
-
-  // 如果是不同年份，显示完整年月
   if (targetDate.year() !== now.year()) {
     return targetDate.format(t('common.timeGroup.yearMonthFormat'))
   }
-  // 同年不同月
   return targetDate.format(t('common.timeGroup.monthFormat'))
 }
 
-// 对会话列表进行分组
 const groupedSessions = computed(() => {
+  const _ = locale.value // ⚠️ Dependencia explícita
   if (!sessions.value) return {}
 
   const groups: Record<string, ChatSession[]> = {}
@@ -181,7 +184,6 @@ const groupedSessions = computed(() => {
 
 <template>
   <Toaster />
-  <!-- 添加确认对话框 -->
   <AlertDialog :open="!!sessionToDelete" @update:open="">
     <AlertDialogContent>
       <AlertDialogHeader>
@@ -203,7 +205,6 @@ const groupedSessions = computed(() => {
     <SidebarHeader class="gap-3.5 border-b p-4 h-[64px]">
       <div class="flex w-full items-center justify-between">
         <div class="text-base font-medium text-foreground">
-          <!-- {{ activeItem.title }} -->
             {{ t('chat.sidebar.chat') }}
         </div>
         <Label class="flex items-center gap-2 text-sm">
@@ -212,26 +213,19 @@ const groupedSessions = computed(() => {
           </Button>
         </Label>
       </div>
-      <!-- <SidebarInput placeholder="输入要搜索的内容..." /> -->
     </SidebarHeader>
     <SidebarContent>
       <ScrollArea class="w-full h-fulll" :class="envStore.isWeb ? 'h-[calc(100dvh-64px-30px)]' : 'h-[calc(100dvh-64px)]'">
         <SidebarGroup class="px-0">
           <template v-for="(sessions, groupName) in groupedSessions" :key="groupName">
-            <SidebarGroupLabel class="pl-4 mt-2 text-xs text-gray-400">{{
-              groupName
-            }}</SidebarGroupLabel>
+            <SidebarGroupLabel class="pl-4 mt-2 text-xs text-gray-400">{{ groupName }}</SidebarGroupLabel>
             <SidebarGroupContent>
               <template v-for="item in sessions" :key="item.id">
                 <a
                   @click="handleSessionChange(item)"
                   href="#"
                   class="group/item flex justify-between items-center px-4 py-1 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                  :class="
-                    item.id === activeSessionId
-                      ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                      : ''
-                  "
+                  :class="item.id === activeSessionId ? 'bg-sidebar-accent text-sidebar-accent-foreground' : ''"
                 >
                   <div class="flex-1 max-w-[80%] space-y-2">
                     <div
@@ -243,22 +237,12 @@ const groupedSessions = computed(() => {
                   </div>
                   <DropdownMenu>
                     <DropdownMenuTrigger as-child>
-                      <Button
-                        class="invisible group-hover/item:visible"
-                        size="icon"
-                        variant="ghost"
-                        v-on:click.stop=""
-                      >
+                      <Button class="invisible group-hover/item:visible" size="icon" variant="ghost" v-on:click.stop="">
                         <EllipsisVertical class=""></EllipsisVertical>
                       </Button>
                     </DropdownMenuTrigger>
-                    <!-- <DropdownMenuContent algin="start" side="right" as-child> -->
                     <DropdownMenuContent align="start" side="right">
-                      <!-- <DropdownMenuItem> <Copy></Copy> 复制 </DropdownMenuItem> -->
-                      <DropdownMenuItem
-                        @click.stop="handleRemoveSession(item)"
-                        class="text-red-600 hover:text-red-500"
-                      >
+                      <DropdownMenuItem @click.stop="handleRemoveSession(item)" class="text-red-600 hover:text-red-500">
                         <Trash2></Trash2> {{ t('common.delete') }}
                       </DropdownMenuItem>
                     </DropdownMenuContent>

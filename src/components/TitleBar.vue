@@ -22,6 +22,6 @@ onMounted(async () => {
     class="bg-sidebar h-[30px] flex items-center justify-center text-center border-b text-xs font-bold"
     :class="envStore.isWeb && 'hidden'"
   >
-  eechat <span v-if="version" class="ml-1 opacity-30 font-normal">(v{{ version }})</span>
+  xavi9 <span v-if="version" class="ml-1 opacity-30 font-normal">(v{{ version }})</span>
   </div>
 </template>

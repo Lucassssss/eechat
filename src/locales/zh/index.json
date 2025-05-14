@@ -9,6 +9,7 @@
     "loading": "加载中...",
     "error": "错误",
     "success": "成功",
+    "copy": "复制",
     "timeGroup": {
       "today": "今天",
       "yesterday": "昨天",
@@ -32,6 +33,7 @@
       "chatName": "对话名称",
       "systemPrompt": "系统提示",
       "rolePrompt": "角色设定",
+      "editPrompt": "编辑提示词",
       "creativity": "创意活跃度",
       "openness": "思维开放度",
       "expressiveness": "表述发散度",
@@ -55,7 +57,7 @@
       "title": "编辑提示词",
       "placeholder": "请在此输入提示词..."
     },
-    "discover":{
+    "discover": {
       "title": "发现"
     },
     "mcp": {
@@ -142,55 +144,91 @@
         "title": "法语翻译助手",
         "description": "友好、专业、富有同理心的法语翻译AI助手",
         "type": "翻译",
-        "tags": ["翻译", "幽默", "文化"]
+        "tags": [
+          "翻译",
+          "幽默",
+          "文化"
+        ]
       },
       "codeHelper": {
         "title": "代码助手",
         "description": "专业的编程助手，精通多种编程语言和框架",
         "type": "编程",
-        "tags": ["编程", "调试", "解释"]
+        "tags": [
+          "编程",
+          "调试",
+          "解释"
+        ]
       },
       "englishWriting": {
         "title": "英语写作教练",
         "description": "提供专业的英语写作指导和修改建议",
         "type": "教育",
-        "tags": ["写作", "英语", "教育"]
+        "tags": [
+          "写作",
+          "英语",
+          "教育"
+        ]
       },
       "mentalHealth": {
         "title": "心理健康顾问",
         "description": "提供情感支持和心理健康建议的AI助手",
         "type": "健康",
-        "tags": ["心理", "情感", "健康"]
+        "tags": [
+          "心理",
+          "情感",
+          "健康"
+        ]
       },
       "creativeWriting": {
         "title": "创意写作助手",
         "description": "激发灵感，协助创作小说、诗歌和各类创意内容",
         "type": "写作",
-        "tags": ["创意", "写作", "灵感"]
+        "tags": [
+          "创意",
+          "写作",
+          "灵感"
+        ]
       },
       "dataAnalysis": {
         "title": "数据分析专家",
         "description": "协助数据分析、统计和可视化的专业助手",
         "type": "数据",
-        "tags": ["数据", "分析", "统计"]
+        "tags": [
+          "数据",
+          "分析",
+          "统计"
+        ]
       },
       "travelPlanner": {
         "title": "旅行规划师",
         "description": "帮助规划旅行路线、推荐景点和提供旅行建议",
         "type": "生活",
-        "tags": ["旅行", "规划", "建议"]
+        "tags": [
+          "旅行",
+          "规划",
+          "建议"
+        ]
       },
       "dietitian": {
         "title": "健康饮食顾问",
         "description": "提供营养均衡的饮食建议和健康食谱",
         "type": "健康",
-        "tags": ["饮食", "健康", "营养"]
+        "tags": [
+          "饮食",
+          "健康",
+          "营养"
+        ]
       },
       "japaneseCoach": {
         "title": "日语学习教练",
         "description": "专业的日语学习指导和练习伙伴",
         "type": "教育",
-        "tags": ["日语", "学习", "语言"]
+        "tags": [
+          "日语",
+          "学习",
+          "语言"
+        ]
       }
     }
   },
@@ -214,7 +252,7 @@
       "selectModel": "选择模型",
       "noLocalModel": "未找到本地模型",
       "configureModel": "去配置",
-      "clickToConfig": "点击去配置模型",
+      "clickToConfig": "   点击去配置模型",
       "localModel": "本地模型"
     },
     "apiModel": {
@@ -231,7 +269,47 @@
       "connectivityCheck": "连通性检查",
       "selectModelToTest": "选择要测试连通性的模型",
       "availableModels": "可用模型",
-      "enableModel": "开启后可在聊天中使用该模型"
+      "enableModel": "开启后可在聊天中使用该模型",
+      "addModel": "添加模型",
+      "confirmDeleteModel": "删除模型",
+      "confirmDeleteModelDesc": "确定要删除该模型吗？此操作无法撤销。",
+      "providerDialog": {
+        "addProviderTitle": "添加新供应商",
+        "addProviderDesc": "添加自定义的 LLM 供应商，填写必要的配置信息。",
+        "providerId": "供应商 ID",
+        "providerIdPlaceholder": "例如: openai, anthropic",
+        "apiKey": "API 密钥",
+        "apiUrl": "API 地址",
+        "state": "状态",
+        "enabled": "启用",
+        "disabled": "禁用",
+        "add": "添加",
+        "adding": "添加中...",
+        "confirmDeleteTitle": "确认删除",
+        "confirmDeleteDesc": "您确定要删除供应商 \"{provider}\" 吗？此操作无法撤销，相关的所有模型配置也将被删除。",
+        "confirmDelete": "确认删除",
+        "deleting": "删除中..."
+      },
+      "addCustomModelDalog": {
+        "titleAdd": "新增自定义模型",
+        "titleEdit": "编辑自定义模型",
+        "descAdd": "通过填写必要信息新增一个自定义模型。",
+        "descEdit": "编辑该自定义模型的配置信息。",
+        "modelId": "模型ID",
+        "modelName": "模型名称",
+        "groupName": "分组名称",
+        "capabilities": "模型能力",
+        "formError": "表单错误",
+        "formErrorDesc": "模型名称是必填项。",
+        "save": "保存",
+        "update": "更新",
+        "addSuccess": "模型添加成功",
+        "addSuccessDesc": "模型已成功添加。",
+        "addFailed": "添加模型失败",
+        "updateSuccess": "更新成功",
+        "updateSuccessDesc": "模型已成功更新。",
+        "updateFailed": "更新模型失败"
+      }
     },
     "localModel": {
       "serviceNotResponding": "服务未响应",
@@ -271,8 +349,7 @@
       "interface": "界面",
       "about": "关于",
       "data": "数据",
-      "proxy": "代理设置",
-      "playground": "Playground"
+      "playground": "游乐场"
     },
     "proxy": {
       "title": "代理设置",
@@ -313,9 +390,68 @@
       "openDirectory": "打开"
     },
     "about": {
-      "description": "一款简单易用，本地化部署的大模型工具。",
-      "star": "Star",
-      "accelerate": "加速开发"
+      "description": "一个简单易用的本地部署 LLM 工具。",
+      "star": "给颗星",
+      "accelerate": "加速开发",
+      "contactTitle": "联系我们",
+      "wechatGroup": "微信交流反馈群",
+      "contactDev": "联系开发者",
+      "businessTitle": "软件定制/商务服务"
+    },
+    "devPlayground": {
+      "title": "开发者测试区",
+      "quit": "退出",
+      "reload": "重载",
+      "serverPath": "服务器路径",
+      "startEggServer": "启动 Egg 服务器",
+      "stopEggServer": "停止 Egg 服务器",
+      "checkUpdate": "检查更新",
+      "downloadUpdate": "下载更新",
+      "installUpdate": "安装更新",
+      "modelPath": "模型路径",
+      "initModel": "初始化模型",
+      "inputMessage": "输入消息",
+      "sendMessage": "发送消息"
     }
+  },
+  "mcp": {
+    "title": "MCP管理",
+    "subtitle": "管理和安装MCP应用，提升AI助手能力",
+    "helpDoc": "帮助文档",
+    "installedTitle": "已安装应用",
+    "refresh": "刷新",
+    "addNew": "添加新应用",
+    "noInstalled": "暂无已安装的MCP应用，请点击“添加新应用”进行添加。",
+    "loading": "正在加载MCP应用列表...",
+    "recommendedTitle": "推荐应用",
+    "viewMore": "查看更多",
+    "edit": "编辑配置",
+    "delete": "删除",
+    "confirmDeleteTitle": "确认删除",
+    "confirmDeleteDesc": "您确定要删除{name}吗？此操作无法撤销。",
+    "cancel": "取消",
+    "deleteSuccess": "删除成功",
+    "deleteFail": "删除失败",
+    "startSuccess": "启动成功",
+    "startFail": "启动失败",
+    "stopSuccess": "停止成功",
+    "stopFail": "停止失败",
+    "start": "启动服务",
+    "stop": "停止服务",
+    "running": "运行中",
+    "stopped": "已停止",
+    "installApp": "安装此应用"
+  },
+  "downloadManager": {
+    "title": "Download Manager",
+    "noTasks": "No download tasks",
+    "status": {
+      "completed": "Completed",
+      "failed": "Download failed",
+      "paused": "Paused",
+      "canceled": "Canceled",
+      "pending": "Pending"
+    },
+    "error": "Error"
   }
 }

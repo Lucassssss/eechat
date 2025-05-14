@@ -1,13 +1,13 @@
 {
-  "name": "eechat",
-  "version": "0.7.7",
+  "name": "xavi9",
+  "version": "0.7.5",
   "main": "dist-electron/main/index.js",
   "description": "a light weight chat tool for llm.",
-  "author": "eechat <oodoobvideo@gmail.com>",
+  "author": "xavi9 <javier.molina@tribucorp.es>",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lucassssss/eechat.git"
+    "url": "https://github.com/dckstudios.com/xavi9.git"
   },
   "private": true,
   "keywords": [

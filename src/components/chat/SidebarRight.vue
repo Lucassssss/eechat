@@ -109,22 +109,34 @@ const openPromptEditor = () => {
         </div>
         <!-- </FormField> -->
         <div class="grid gap-2">
-          <div class="flex justify-between items-center">
-            <Label>
-              <span class="space-x-1">
-                <span>{{ t('chat.settings.systemPrompt') }}</span>
-                <Badge variant="outline">{{ t('chat.settings.rolePrompt') }}</Badge>
-              </span>
+        <div class="space-y-2">
+          <!-- Título y subtítulo -->
+          <div>
+            <Label class="text-sm font-semibold">
+              {{ t('chat.settings.systemPrompt') }}
             </Label>
-            <Button size="sm" variant="outline" @click="openPromptEditor" type="button">
-              <SquarePen></SquarePen> <span class="text-xs">窗口编辑</span>
+            <div class="mt-1">
+              <Badge variant="outline" class="text-xs font-normal">
+                {{ t('chat.settings.rolePrompt') }}
+              </Badge>
+            </div>
+          </div>
+
+          <!-- Botón editar -->
+          <div>
+            <Button size="sm" variant="outline" @click="openPromptEditor" class="flex items-center space-x-2">
+              <SquarePen class="w-4 h-4" />
+              <span class="text-xs">{{ t('chat.settings.editPrompt') }}</span>
             </Button>
           </div>
+
+          <!-- Área de texto -->
           <Textarea
-            type="text"
-            placeholder=""
             v-model="formData.systemPrompt"
+            class="mt-2"
+            :placeholder="t('chat.inputPlaceholder')"
           />
+        </div>
         </div>
         <div class="grid gap-2">
           <Label>{{ t('chat.settings.creativity') }} <Badge variant="outline">temperature</Badge></Label>

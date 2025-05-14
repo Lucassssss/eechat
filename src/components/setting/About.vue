@@ -11,7 +11,7 @@ const phoneButtonIcon = ref("copy")
 const emailButtonIcon = ref("copy")
 
 const github = () => {
-  window.ipcRenderer.invoke("open-external", "https://github.com/Lucassssss/eechat")
+  window.ipcRenderer.invoke("open-external", "https://github.com/Lucassssss/xavi9")
 }
 
 const copyToClipboard = (text: string, type: string) => {
@@ -19,7 +19,7 @@ const copyToClipboard = (text: string, type: string) => {
     .writeText(text)
     .then(() => {
       // 根据复制的内容类型设置对应按钮的图标为 Check
-      if (type === "电话号码") {
+      if (type === "phone") {
         phoneButtonIcon.value = "check"
         // 2秒后恢复为 Copy 图标
         setTimeout(() => {
@@ -51,52 +51,36 @@ const copyToClipboard = (text: string, type: string) => {
         <span>{{ t("settings.about.accelerate") }}</span>
       </Button>
     </div>
-    <div class="font-bold text-lg">联系我们</div>
+    <div class="font-bold text-lg">{{ t("settings.about.contactTitle") }}</div>
     <div class="flex space-x-6">
       <div>
-        <div class="mb-2 text-zinc-500">微信交流反馈群</div>
-        <img
-          class="size-[200px] border rounded"
-          src="http://8.130.172.245/assets/wechat_g.png"
-          alt=""
-        />
+        <div class="mb-2 text-zinc-500">{{ t("settings.about.wechatGroup") }}</div>
+        <img class="size-[200px] border rounded" src="http://8.130.172.245/assets/wechat_g.png" />
       </div>
       <div>
-        <div class="mb-2 text-zinc-500">联系开发者</div>
-        <img
-          class="size-[200px] border rounded"
-          src="http://8.130.172.245/assets/wechat_a.png"
-          alt=""
-        />
+        <div class="mb-2 text-zinc-500">{{ t("settings.about.contactDev") }}</div>
+        <img class="size-[200px] border rounded" src="http://8.130.172.245/assets/wechat_a.png" />
       </div>
     </div>
-    <div class="font-bold text-lg">软件定制/商务服务</div>
+    <div class="font-bold text-lg">{{ t("settings.about.businessTitle") }}</div>
     <div class="flex space-x-4">
       <div class="space-y-2">
         <div class="flex items-center space-x-2">
           <Phone class="text-zinc-500 size-4"></Phone>
           <span class="text-zinc-600">18693098002</span>
-          <Button
-            size="sm"
-            variant="outline"
-            @click="copyToClipboard('18693098002', '电话号码')"
-          >
+          <Button size="sm" variant="outline" @click="copyToClipboard('18693098002', 'phone')">
             <Copy v-if="phoneButtonIcon === 'copy'"></Copy>
             <Check v-else class="text-green-500"></Check>
-            复制
+            {{ t('common.copy') }}
           </Button>
         </div>
         <div class="flex items-center space-x-2">
           <Mail class="text-zinc-500 size-4"></Mail>
           <span class="text-zinc-600">hi@9tharts.com</span>
-          <Button
-            size="sm"
-            variant="outline"
-            @click="copyToClipboard('hi@9tharts.com', '邮箱')"
-          >
+          <Button size="sm" variant="outline" @click="copyToClipboard('hi@9tharts.com', 'email')">
             <Copy v-if="emailButtonIcon === 'copy'"></Copy>
             <Check v-else class="text-green-500"></Check>
-            复制
+            {{ t('common.copy') }}
           </Button>
         </div>
       </div>

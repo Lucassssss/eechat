@@ -131,10 +131,10 @@ onUnmounted(() => {
 
 <template>
   <div class="p-4">
-    <h2 class="text-xl font-bold mb-4">下载管理器</h2>
+    <h2 class="text-xl font-bold mb-4">{{ t('downloadManager.title') }}</h2>
     
     <div v-if="tasks.length === 0" class="text-center py-8 text-muted-foreground">
-      暂无下载任务
+      {{ t('downloadManager.noTasks') }}
     </div>
     
     <div v-else class="space-y-4">
@@ -199,15 +199,18 @@ onUnmounted(() => {
             {{ formatSpeed(task.speed) }}
           </div>
           <div v-else>
-            {{ task.status === 'completed' ? '已完成' : 
-               task.status === 'failed' ? '下载失败' : 
-               task.status === 'paused' ? '已暂停' : 
-               task.status === 'canceled' ? '已取消' : '等待中' }}
+            {{
+              task.status === 'completed' ? t('downloadManager.status.completed') :
+              task.status === 'failed' ? t('downloadManager.status.failed') :
+              task.status === 'paused' ? t('downloadManager.status.paused') :
+              task.status === 'canceled' ? t('downloadManager.status.canceled') :
+              t('downloadManager.status.pending')
+            }}
           </div>
         </div>
         
         <div v-if="task.error" class="mt-2 text-xs text-red-500">
-          错误: {{ task.error }}
+          {{ t('downloadManager.error') }}: {{ task.error }}
         </div>
       </div>
     </div>

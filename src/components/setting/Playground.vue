@@ -2,9 +2,12 @@
 import { ref, reactive, onMounted, onUnmounted } from "vue"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useI18n } from "vue-i18n"
 
 const serverPath = ref("../server")
 const resStr = ref("")
+
+const { t } = useI18n()
 
 // 添加更新器事件监听
 const setupUpdateListeners = () => {
@@ -89,7 +92,7 @@ const installUpdate = async () => {
 }
 
 const modelPath = ref("/Users/lucas/workspace/workspace/ai/deepseek/llmModel/DeepSeek-R1-Distill-Qwen-7B-Q3_K_L.gguf")
-const chatMessage = ref("你好")
+const chatMessage = ref(t('settings.devPlayground.inputMessage'))
 
 const initializeLlama = async () => {
   try {
@@ -129,28 +132,28 @@ const hancleReload = async () => {
 
 <template>
   <div class="h-full space-y-6">
-    <div>for dev playground</div>
+    <div>{{ t('settings.devPlayground.title') }}</div>
     <div class="flex flex-col space-y-6">
       <div class="space-x-2"> 
-        <Button @click="hancleQuit">quit</Button>
-        <Button @click="hancleReload">reload</Button>
+        <Button @click="hancleQuit">{{ t('settings.devPlayground.quit') }}</Button>
+        <Button @click="hancleReload">{{ t('settings.devPlayground.reload') }}</Button>
       </div>
-      <Input v-model="serverPath"></Input>
+      <Input v-model="serverPath" :placeholder="t('settings.devPlayground.serverPath')"></Input>
       <div class="flex space-x-2">
-        <Button @click="handleClickStart">startEggServer</Button>
-        <Button @click="handleClickStop">stopEggServer</Button>
+        <Button @click="handleClickStart">{{ t('settings.devPlayground.startEggServer') }}</Button>
+        <Button @click="handleClickStop">{{ t('settings.devPlayground.stopEggServer') }}</Button>
       </div>
       <div class="flex space-x-2">
-        <Button @click="checkUpdate">checkUpdate</Button>
-        <Button @click="downloadUpdate">downloadUpdate</Button>
-        <Button @click="installUpdate">installUpdate</Button>
+        <Button @click="checkUpdate">{{ t('settings.devPlayground.checkUpdate') }}</Button>
+        <Button @click="downloadUpdate">{{ t('settings.devPlayground.downloadUpdate') }}</Button>
+        <Button @click="installUpdate">{{ t('settings.devPlayground.installUpdate') }}</Button>
       </div>
       <div class="flex flex-col space-y-6">
-        <Input v-model="modelPath" placeholder="模型路径"></Input>
-        <Button @click="initializeLlama">初始化模型</Button>
+        <Input v-model="modelPath" :placeholder="t('settings.devPlayground.modelPath')"></Input>
+        <Button @click="initializeLlama">{{ t('settings.devPlayground.initModel') }}</Button>
 
-        <Input v-model="chatMessage" placeholder="输入消息"></Input>
-        <Button @click="sendMessage">发送消息</Button>
+        <Input v-model="chatMessage" :placeholder="t('settings.devPlayground.inputMessage')"></Input>
+        <Button @click="sendMessage">{{ t('settings.devPlayground.sendMessage') }}</Button>
       </div>
       <div class="res">
         {{ resStr }}

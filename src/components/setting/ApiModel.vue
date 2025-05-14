@@ -471,27 +471,25 @@ const { locale } = useI18n()
           <div class="font-bold ml-2">{{ t('settings.apiModel.modelProvider') }}</div>
           <Dialog v-model:open="showAddProviderDialog">
             <DialogTrigger asChild>
-              <Button size="sm" variant="outline"><Plus></Plus>新增</Button>
+              <Button size="sm" variant="outline"><Plus/></Button>
             </DialogTrigger>
             <DialogContent class="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>添加新供应商</DialogTitle>
-                <DialogDescription>
-                  添加自定义的 LLM 供应商，填写必要的配置信息。
-                </DialogDescription>
+                <DialogTitle>{{ t('settings.apiModel.providerDialog.addProviderTitle') }}</DialogTitle>
+                <DialogDescription>{{ t('settings.apiModel.providerDialog.addProviderDesc') }}</DialogDescription>
               </DialogHeader>
               <div class="grid gap-4 space-y-4">
-                <div class="grid grid-cols-4 items-center gap-4 ">
-                  <Label class="text-right" for="provider-id">供应商 ID</Label>
+                <div class="grid grid-cols-4 items-center gap-4">
+                  <Label class="text-right" for="provider-id">{{ t('settings.apiModel.providerDialog.providerId') }}</Label>
                   <Input
                     id="provider-id"
                     v-model="newProviderForm.provider_id"
-                    placeholder="例如: openai, anthropic"
+                    :placeholder="t('settings.apiModel.providerDialog.providerIdPlaceholder')"
                     class="col-span-3"
                   />
                 </div>
                 <div class="grid grid-cols-4 items-center gap-4">
-                  <Label class="text-right" for="api-key">API Key</Label>
+                  <Label class="text-right" for="api-key">{{ t('settings.apiModel.providerDialog.apiKey') }}</Label>
                   <Input
                     id="api-key"
                     v-model="newProviderForm.api_key"
@@ -501,7 +499,7 @@ const { locale } = useI18n()
                   />
                 </div>
                 <div class="grid grid-cols-4 items-center gap-4">
-                  <Label class="text-right" for="base-url">API URL</Label>
+                  <Label class="text-right" for="base-url">{{ t('settings.apiModel.providerDialog.apiUrl') }}</Label>
                   <Input
                     id="base-url"
                     v-model="newProviderForm.base_url"
@@ -510,18 +508,22 @@ const { locale } = useI18n()
                   />
                 </div>
                 <div class="grid grid-cols-4 items-center gap-4">
-                  <Label class="text-right" for="state">启用状态</Label>
+                  <Label class="text-right" for="state">{{ t('settings.apiModel.providerDialog.state') }}</Label>
                   <div class="col-span-3 flex items-center">
                     <Switch id="state" v-model="newProviderForm.state" />
-                    <span class="ml-2">{{ newProviderForm.state ? '启用' : '禁用' }}</span>
+                    <span class="ml-2">
+                      {{ newProviderForm.state ? t('settings.apiModel.providerDialog.enabled') : t('settings.apiModel.providerDialog.disabled') }}
+                    </span>
                   </div>
                 </div>
               </div>
               <DialogFooter>
-                <Button variant="outline" @click="showAddProviderDialog = false">取消</Button>
+                <Button variant="outline" @click="showAddProviderDialog = false">
+                  {{ t('common.cancel') }}
+                </Button>
                 <Button :disabled="saveLoading" @click="addProvider">
                   <Loader2 v-if="saveLoading" class="mr-2 h-4 w-4 animate-spin" />
-                  {{ saveLoading ? '添加中...' : '添加' }}
+                  {{ saveLoading ? t('settings.apiModel.providerDialog.adding') : t('settings.apiModel.providerDialog.add') }}
                 </Button>
               </DialogFooter>
             </DialogContent>
@@ -584,7 +586,7 @@ const { locale } = useI18n()
                 <DropdownMenuContent>
                   <DropdownMenuItem @click="showDeleteConfirm = true">
                     <Trash2 class="mr-2 h-4 w-4 text-red-500" />
-                    <span>删除供应商</span>
+                    <span>{{ t('common.delete') }}</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -753,16 +755,18 @@ const { locale } = useI18n()
     <Dialog v-model:open="showDeleteConfirm">
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>确认删除</DialogTitle>
+          <DialogTitle>{{ t('settings.apiModel.providerDialog.confirmDeleteTitle') }}</DialogTitle>
           <DialogDescription>
-            您确定要删除供应商 "{{ currentProvider }}" 吗？此操作无法撤销，相关的所有模型配置也将被删除。
+            {{ t('settings.apiModel.providerDialog.confirmDeleteDesc', { provider: currentProvider }) }}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant="outline" @click="showDeleteConfirm = false">取消</Button>
+          <Button variant="outline" @click="showDeleteConfirm = false">
+            {{ t('common.cancel') }}
+          </Button>
           <Button variant="destructive" :disabled="saveLoading" @click="deleteProvider">
             <Loader2 v-if="saveLoading" class="mr-2 h-4 w-4 animate-spin" />
-            {{ saveLoading ? '删除中...' : '确认删除' }}
+            {{ saveLoading ? t('settings.apiModel.providerDialog.deleting') : t('settings.apiModel.providerDialog.confirmDelete') }}
           </Button>
         </DialogFooter>
       </DialogContent>
@@ -771,17 +775,17 @@ const { locale } = useI18n()
     <Dialog v-model:open="showDeleteModelConfirm">
       <DialogContent class="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{{ t('common.confirmDelete', '确认删除') }}</DialogTitle>
+          <DialogTitle>{{ t('settings.apiModel.confirmDeleteModel') }}</DialogTitle>
           <DialogDescription>
             <!-- {{ t('settings.apiModel.confirmDeleteModelDesc', '确定要删除模型 {model} 吗？此操作不可撤销。', { model: modelToDelete?.name }) }} -->
-            {{ t('settings.apiModel.confirmDeleteModelDesc', '确定要删除模型吗？此操作不可撤销。') }}
+            {{ t('settings.apiModel.confirmDeleteModelDesc') }}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
           <Button variant="outline" @click="showDeleteModelConfirm = false">{{ t('common.cancel', '取消') }}</Button>
           <Button variant="destructive" :disabled="saveLoading" @click="deleteModel">
             <Loader2 v-if="saveLoading" class="mr-2 h-4 w-4 animate-spin" />
-            {{ t('common.delete', '删除') }}
+            {{ t('common.delete') }}
           </Button>
         </DialogFooter>
       </DialogContent>

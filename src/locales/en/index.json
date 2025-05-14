@@ -8,6 +8,7 @@
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",
+    "copy": "Copy",
     "timeGroup": {
       "today": "Today",
       "yesterday": "Yesterday",
@@ -16,6 +17,65 @@
       "monthFormat": "MMMM",
       "yearMonthFormat": "MMMM YYYY"
     }
+  },
+  "email": {
+    "title": "Microsoft Mail",
+    "inbox": "Inbox",
+    "compose": "New Message",
+    "to": "To",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "aiHelp": "Get AI Help",
+    "noSelection": "Select an email to read",
+    "noSelectionHint": "Or click the edit button to compose a new message"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "today": "Today",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "newEvent": "New Event",
+    "editEvent": "Edit Event",
+    "deleteEvent": "Delete Event",
+    "eventTitle": "Event Title",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "location": "Location",
+    "description": "Description",
+    "allDay": "All Day",
+    "save": "Save",
+    "cancel": "Cancel",
+    "aiHelp": "Get AI Help",
+    "aiSuggestions": "AI Suggestions",
+    "noEvents": "No events for this period",
+    "upcoming": "Upcoming Events"
+  },
+  "todo": {
+    "title": "To-Do List",
+    "newTask": "New Task",
+    "editTask": "Edit Task",
+    "deleteTask": "Delete Task",
+    "taskTitle": "Task Title",
+    "description": "Description",
+    "dueDate": "Due Date",
+    "priority": "Priority",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "completed": "Completed",
+    "incomplete": "Incomplete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "aiHelp": "Get AI Help",
+    "aiSuggestions": "AI Suggestions",
+    "noTasks": "No tasks to display",
+    "all": "All",
+
+    "active": "Active",
+    "completed": "Completed"
+
   },
   "chat": {
     "scrollToBottom": "Scroll to Bottom",
@@ -31,12 +91,18 @@
       "chatName": "Chat Name",
       "systemPrompt": "System Prompt",
       "rolePrompt": "Role Setting",
+      "editPrompt": "Edit prompt",
       "creativity": "Creativity",
       "openness": "Openness",
       "expressiveness": "Expressiveness",
       "vocabulary": "Vocabulary",
       "saveSettings": "Save Settings",
       "saveSuccess": "Save Success"
+    },
+    "theme": {
+      "light": "浅色",
+      "dark": "深色",
+      "system": "系统"
     },
     "sidebar": {
       "chat": "Chat",
@@ -162,7 +228,7 @@
     "modelSelect": {
       "selectModel": "Select Model",
       "noLocalModel": "No local model found",
-      "configureModel": "Configure",
+      "configureModel": "    Configure",
       "clickToConfig": "Click to configure model",
       "localModel": "Local Model"
     },
@@ -180,7 +246,48 @@
       "connectivityCheck": "Connectivity Check",
       "selectModelToTest": "Select a model to test connectivity",
       "availableModels": "Available Models",
-      "enableModel": "Enable this model in chat"
+      "enableModel": "Enable this model in chat",
+      "addModel": "Add model",
+      "confirmDeleteModel": "Delete model",
+      "confirmDeleteModelDesc": "Are you sure you want to delete this model? This action cannot be undone.",
+
+      "providerDialog": {
+        "addProviderTitle": "Add New Provider",
+        "addProviderDesc": "Add a custom LLM provider by filling in the necessary configuration.",
+        "providerId": "Provider ID",
+        "providerIdPlaceholder": "e.g. openai, anthropic",
+        "apiKey": "API Key",
+        "apiUrl": "API URL",
+        "state": "State",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "add": "Add",
+        "adding": "Adding...",
+        "confirmDeleteTitle": "Confirm Deletion",
+        "confirmDeleteDesc": "Are you sure you want to delete provider \"{provider}\"? This action cannot be undone and will delete all associated model configurations.",
+        "confirmDelete": "Confirm Delete",
+        "deleting": "Deleting..."
+      },
+      "addCustomModelDialog": {
+        "titleAdd": "Add Custom Model",
+        "titleEdit": "Edit Custom Model",
+        "descAdd": "Add a new custom model by providing the required details.",
+        "descEdit": "Edit the configuration of the custom model.",
+        "modelId": "Model ID",
+        "modelName": "Model Name",
+        "groupName": "Group Name",
+        "capabilities": "Model Capabilities",
+        "formError": "Form Error",
+        "formErrorDesc": "Model name is required.",
+        "save": "Save",
+        "update": "Update",
+        "addSuccess": "Model Added",
+        "addSuccessDesc": "The model was added successfully.",
+        "addFailed": "Failed to add model",
+        "updateSuccess": "Update Successful",
+        "updateSuccessDesc": "Model updated successfully.",
+        "updateFailed": "Failed to update model"
+      }
     },
     "localModel": {
       "serviceNotResponding": "Service Not Responding",
@@ -264,7 +371,66 @@
     "about": {
       "description": "A simple and easy-to-use, locally deployed LLM tool.",
       "star": "Star",
-      "accelerate": "Accelerate development"
+      "accelerate": "Accelerate development",
+      "contactTitle": "Contact us",
+      "wechatGroup": "WeChat feedback group",
+      "contactDev": "Contact developer",
+      "businessTitle": "Software customization / business services"
+    },
+    "devPlayground": {
+      "title": "For dev playground",
+      "quit": "Quit",
+      "reload": "Reload",
+      "serverPath": "Server path",
+      "startEggServer": "Start Egg Server",
+      "stopEggServer": "Stop Egg Server",
+      "checkUpdate": "Check Update",
+      "downloadUpdate": "Download Update",
+      "installUpdate": "Install Update",
+      "modelPath": "Model path",
+      "initModel": "Initialize Model",
+      "inputMessage": "Input message",
+      "sendMessage": "Send Message"
     }
+  },
+  "mcp": {
+    "title": "MCP Manager",
+    "subtitle": "Manage and install MCP apps to enhance your AI assistants",
+    "helpDoc": "Help Documentation",
+    "installedTitle": "Installed Applications",
+    "refresh": "Refresh",
+    "addNew": "Add New Application",
+    "noInstalled": "No MCP applications installed. Click \"Add New Application\" to start.",
+    "loading": "Loading MCP application list...",
+    "recommendedTitle": "Recommended Applications",
+    "viewMore": "View More",
+    "edit": "Edit Configuration",
+    "delete": "Delete",
+    "confirmDeleteTitle": "Confirm Deletion",
+    "confirmDeleteDesc": "Are you sure you want to delete {name}? This action cannot be undone.",
+    "cancel": "Cancel",
+    "deleteSuccess": "Deleted successfully",
+    "deleteFail": "Failed to delete",
+    "startSuccess": "Started successfully",
+    "startFail": "Failed to start",
+    "stopSuccess": "Stopped successfully",
+    "stopFail": "Failed to stop",
+    "start": "Start Service",
+    "stop": "Stop Service",
+    "running": "Running",
+    "stopped": "Stopped",
+    "installApp": "Install this application"
+  },
+  "downloadManager": {
+    "title": "Download Manager",
+    "noTasks": "No download tasks",
+    "status": {
+      "completed": "Completed",
+      "failed": "Download failed",
+      "paused": "Paused",
+      "canceled": "Canceled",
+      "pending": "Pending"
+    },
+    "error": "Error"
   }
 }

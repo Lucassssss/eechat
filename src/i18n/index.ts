@@ -1,48 +1,57 @@
 import { createI18n } from 'vue-i18n';
 import enUS from '../locales/en/index.json'
 import zhCN from '../locales/zh/index.json'
+import esES from '../locales/es/index.json'
+import caES from '../locales/ca/index.json'
 
-// 检测用户首选语言
-// const getBrowserLanguage = () => {
-//   const navigatorLanguage = navigator.language.toLowerCase();
-//   if (navigatorLanguage.startsWith('zh')) {
-//     return 'zh';
-//   }
-//   return 'en';
-// };
 
-type AvailableLanguages = 'en-US' | 'zh-CN'
+// Actualizado para incluir todos los idiomas disponibles
+export type AvailableLanguages = 'en-US' | 'zh-CN' | 'es-ES' | 'ca-ES'
 
-// 从本地存储获取用户设置的语言
+
+type AvailableLanguages = 'en-US' | 'zh-CN' | 'es-ES'
+
 const getBrowserLanguage = (): AvailableLanguages => {
   const navigatorLanguage = navigator.language.toLowerCase()
   if (navigatorLanguage.startsWith('zh')) {
     return 'zh-CN'
   }
+  if (navigatorLanguage.startsWith('es')) {
+    return 'es-ES'
+  }
+  if (navigatorLanguage.startsWith('ca')) {
+    return 'ca-ES'
+  }
   return 'en-US'
 }
 
+// Obtener el idioma guardado o detectar el del navegador
 const getSavedLanguage = (): AvailableLanguages => {
-  return (
-    (localStorage.getItem('language') as AvailableLanguages) ||
-    getBrowserLanguage()
-  )
+  const savedLang = localStorage.getItem('language') as AvailableLanguages;
+  // Verificar que el idioma guardado es uno de los disponibles
+  if (savedLang && ['en-US', 'zh-CN', 'es-ES', 'ca-ES'].includes(savedLang)) {
+    return savedLang;
+  }
+  return getBrowserLanguage();
 }
 
 const i18n = createI18n({
-  legacy: false, // 使用 Composition API 模式
+  legacy: false, // Usar modo Composition API
   locale: getSavedLanguage(),
   fallbackLocale: 'en-US',
   messages: {
     'en-US': enUS,
     'zh-CN': zhCN,
+    'es-ES': esES,
+    'ca-ES': caES,
+
   },
 })
 
 export const setLanguage = (lang: AvailableLanguages) => {
   i18n.global.locale.value = lang;
   localStorage.setItem('language', lang);
-  document.querySelector('html')?.setAttribute('lang', lang);
+  document.querySelector('html')?.setAttribute('lang', lang.split('-')[0]);
 };
 
 export default i18n;
