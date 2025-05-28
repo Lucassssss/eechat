@@ -83,7 +83,7 @@
     "@tanstack/vue-table": "^8.21.3",
     "@vee-validate/zod": "^4.15.0",
     "@vercel/analytics": "^1.5.0",
-    "@vueuse/core": "^12.5.0",
+    "@vueuse/core": "^13.3.0",
     "@zilliz/milvus2-sdk-node": "^2.5.8",
     "analytics": "^0.8.16",
     "apache-arrow": "18.1.0",
