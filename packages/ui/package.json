@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@vueuse/core": "^10.7.0",
+    "@vueuse/core": "^13.3.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-vue-next": "^0.294.0",
