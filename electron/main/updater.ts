@@ -9,7 +9,7 @@ export class AppUpdater {
 
     // 配置自动更新
     autoUpdater.autoDownload = false
-    autoUpdater.autoInstallOnAppQuit = true
+    autoUpdater.autoInstallOnAppQuit = false
     // 允许在开发环境下检查更新
     if (!app.isPackaged) {
       autoUpdater.forceDevUpdateConfig = true
