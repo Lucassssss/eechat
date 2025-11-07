@@ -133,10 +133,11 @@ git clone https://github.com/Lucassssss/eechat.git
 cd eechat
 
 # Install dependencies
-npm install
+pnpm install
 
 # Run in development mode
-npm run dev
+pnpm run dev
 
 # Build application
-npm run build```
+pnpm run build:prod
+```
