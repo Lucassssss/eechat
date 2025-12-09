@@ -60,7 +60,7 @@ const formData = reactive<Model>({
   provider_id: props.provider_id,
   state: true,
   name: "",
-  group_name: "自定义分组",
+  group_name: "Custom Group",
   capabilities: ['llm']
 })
 
@@ -69,7 +69,7 @@ watch(() => props.editModel, (model) => {
     formData.provider_id = model.provider_id || props.provider_id
     formData.state = model.state !== undefined ? model.state : true
     formData.name = model.name || ""
-    formData.group_name = model.group_name || "自定义分组"
+    formData.group_name = model.group_name || t('settings.apiModel.customGroup')
     formData.capabilities = model.capabilities || ['llm']
     formData.id = model.id || ""
   }
@@ -91,7 +91,7 @@ const resetForm = () => {
     formData.provider_id = props.editModel.provider_id || props.provider_id
     formData.state = props.editModel.state !== undefined ? props.editModel.state : true
     formData.name = props.editModel.name || ""
-    formData.group_name = props.editModel.group_name || "自定义分组"
+    formData.group_name = props.editModel.group_name || t('settings.apiModel.customGroup')
     formData.capabilities = props.editModel.capabilities || ['llm']
   } else {
     // 添加模式下，重置为默认值
@@ -99,7 +99,7 @@ const resetForm = () => {
     formData.state = true
     formData.id = ""
     formData.name = ""
-    formData.group_name = "自定义分组"
+    formData.group_name = t('settings.apiModel.customGroup')
     formData.capabilities = ['llm']
   }
 }
@@ -189,7 +189,7 @@ if (index === -1) {
         </Button>
         <Button v-else variant="outline" size="sm" @click="openDialog">
           <Plus class="h-4 w-4" />
-          新增模型
+          {{ t('settings.apiModel.addModel') }}
         </Button>
       </DialogTrigger>
       <DialogContent class="sm:max-w-[500px]">

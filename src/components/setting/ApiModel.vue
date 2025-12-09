@@ -341,8 +341,8 @@ const showAddProviderDialog = ref(false)
 const addProvider = async () => {
   if (!newProviderForm.provider_id) {
     toast({
-      title: "请填写必要信息",
-      description: "供应商不能为空，如 openai",
+      title: t('settings.apiModel.fillRequiredInfo'),
+      description: t('settings.apiModel.providerRequired'),
       variant: "destructive",
     })
     return
@@ -355,15 +355,15 @@ const addProvider = async () => {
     })
     currentProvider.value = newProviderForm.provider_id
     toast({
-      title: "添加成功",
-      description: `供应商 ${newProviderForm.provider_id} 已添加`,
+      title: t('settings.apiModel.addProviderSuccess'),
+      description: t('settings.apiModel.addProviderSuccessDesc', { provider: newProviderForm.provider_id }),
     })
     showAddProviderDialog.value = false
     resetNewProviderForm()
     modelStore.fetchProvidersAndModels()
   } catch (error: any) {
     toast({
-      title: "添加失败",
+      title: t('settings.apiModel.addProviderFailed'),
       description: error.message,
       variant: "destructive",
     })
@@ -385,8 +385,8 @@ const deleteProvider = async () => {
     saveLoading.value = true
     await modelStore.deleteProvider(currentProvider.value)
     toast({
-      title: "删除成功",
-      description: `供应商 ${currentProvider.value} 已删除`,
+      title: t('settings.apiModel.deleteProviderSuccess'),
+      description: t('settings.apiModel.deleteProviderSuccessDesc', { provider: currentProvider.value }),
     })
     showDeleteConfirm.value = false
     // 重新获取供应商列表
@@ -398,7 +398,7 @@ const deleteProvider = async () => {
     }
   } catch (error: any) {
     toast({
-      title: "删除失败",
+      title: t('settings.apiModel.deleteProviderFailed'),
       description: error.message,
       variant: "destructive",
     })
@@ -472,20 +472,20 @@ const { locale } = useI18n()
           <Dialog v-model:open="showAddProviderDialog">
             <DialogTrigger asChild>
               <Button size="sm" variant="outline">
-                <Plus></Plus>新增
+                <Plus></Plus>{{ t('settings.apiModel.addNew') }}
               </Button>
             </DialogTrigger>
             <DialogContent class="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>添加新供应商</DialogTitle>
+                <DialogTitle>{{ t('settings.apiModel.addNewProvider') }}</DialogTitle>
                 <DialogDescription>
-                  添加自定义的 LLM 供应商，填写必要的配置信息。
+                  {{ t('settings.apiModel.addProviderDesc') }}
                 </DialogDescription>
               </DialogHeader>
               <div class="grid gap-4 space-y-4">
                 <div class="grid grid-cols-4 items-center gap-4 ">
-                  <Label class="text-right" for="provider-id">供应商 ID</Label>
-                  <Input id="provider-id" v-model="newProviderForm.provider_id" placeholder="例如: openai, anthropic"
+                  <Label class="text-right" for="provider-id">{{ t('settings.apiModel.providerId') }}</Label>
+                  <Input id="provider-id" v-model="newProviderForm.provider_id" :placeholder="t('settings.apiModel.providerIdPlaceholder')"
                     class="col-span-3" />
                 </div>
                 <div class="grid grid-cols-4 items-center gap-4">
@@ -499,18 +499,18 @@ const { locale } = useI18n()
                     class="col-span-3" />
                 </div>
                 <div class="grid grid-cols-4 items-center gap-4">
-                  <Label class="text-right" for="state">启用状态</Label>
+                  <Label class="text-right" for="state">{{ t('settings.apiModel.enableStatus') }}</Label>
                   <div class="col-span-3 flex items-center">
                     <Switch id="state" v-model="newProviderForm.state" />
-                    <span class="ml-2">{{ newProviderForm.state ? '启用' : '禁用' }}</span>
+                    <span class="ml-2">{{ newProviderForm.state ? t('common.enabled') : t('common.disabled') }}</span>
                   </div>
                 </div>
               </div>
               <DialogFooter>
-                <Button variant="outline" @click="showAddProviderDialog = false">取消</Button>
+                <Button variant="outline" @click="showAddProviderDialog = false">{{ t('common.cancel') }}</Button>
                 <Button :disabled="saveLoading" @click="addProvider">
                   <Loader2 v-if="saveLoading" class="mr-2 h-4 w-4 animate-spin" />
-                  {{ saveLoading ? '添加中...' : '添加' }}
+                  {{ saveLoading ? t('common.adding') : t('common.add') }}
                 </Button>
               </DialogFooter>
             </DialogContent>
@@ -567,7 +567,7 @@ const { locale } = useI18n()
                 <DropdownMenuContent>
                   <DropdownMenuItem @click="showDeleteConfirm = true">
                     <Trash2 class="mr-2 h-4 w-4 text-red-500" />
-                    <span>删除供应商</span>
+                    <span>{{ t('settings.apiModel.deleteProvider') }}</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -591,7 +591,7 @@ const { locale } = useI18n()
             <div class="grid gap-2">
               <Label class="font-bold justify-between flex items-center">API Key
                 <a v-if="currentProviderObj && currentProviderObj.api_key_url"
-                  class="text-zinc-500 underline text-sm font-normal" :href="currentProviderObj.api_key_url">获取 API Key
+                  class="text-zinc-500 underline text-sm font-normal" :href="currentProviderObj.api_key_url">{{ t('settings.apiModel.getApiKey') }}
                 </a>
               </Label>
               <div class="flex items-center space-x-2">
@@ -643,7 +643,7 @@ const { locale } = useI18n()
                 </AddCustomModel>
               </div>
               <a v-if="currentProviderObj && currentProviderObj.models_url"
-                class="text-zinc-500 text-sm font-normal underline" :href="currentProviderObj.models_url">模型列表</a>
+                class="text-zinc-500 text-sm font-normal underline" :href="currentProviderObj.models_url">{{ t('settings.apiModel.modelList') }}</a>
             </div>
             <ScrollArea class="h-full w-full rounded-md pb-8"
               :class="!envStore.isWeb ? 'h-[calc(100dvh-430px-30px)]' : 'h-[calc(100dvh-430px)]' ">
@@ -724,16 +724,16 @@ const { locale } = useI18n()
     <Dialog v-model:open="showDeleteConfirm">
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>确认删除</DialogTitle>
+          <DialogTitle>{{ t('settings.apiModel.confirmDeleteProvider') }}</DialogTitle>
           <DialogDescription>
-            您确定要删除供应商 "{{ currentProvider }}" 吗？此操作无法撤销，相关的所有模型配置也将被删除。
+            {{ t('settings.apiModel.confirmDeleteProviderDesc', { provider: currentProvider }) }}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant="outline" @click="showDeleteConfirm = false">取消</Button>
+          <Button variant="outline" @click="showDeleteConfirm = false">{{ t('common.cancel') }}</Button>
           <Button variant="destructive" :disabled="saveLoading" @click="deleteProvider">
             <Loader2 v-if="saveLoading" class="mr-2 h-4 w-4 animate-spin" />
-            {{ saveLoading ? '删除中...' : '确认删除' }}
+            {{ saveLoading ? t('common.deleting') : t('common.confirmDelete') }}
           </Button>
         </DialogFooter>
       </DialogContent>

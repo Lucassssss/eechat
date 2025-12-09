@@ -132,11 +132,16 @@ Download the appropriate installation package for your system from the [releases
 git clone https://github.com/Lucassssss/eechat.git
 cd eechat
 
+# Install pnpm if not already installed
+npm install -g pnpm
+
 # Install dependencies
-npm install
+pnpm install
 
 # Run in development mode
-npm run dev
+pnpm dev
 
 # Build application
-npm run build```
+pnpm package
+```
+

@@ -8,6 +8,15 @@
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",
+    "failed": "Failed",
+    "add": "Add",
+    "adding": "Adding...",
+    "update": "Update",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "deleting": "Deleting...",
+    "confirmDelete": "Confirm Delete",
+    "unknownError": "Unknown Error",
     "timeGroup": {
       "today": "Today",
       "yesterday": "Yesterday",
@@ -339,55 +348,91 @@
         "title": "French Translation Assistant",
         "description": "Friendly, professional and empathetic French translation AI assistant",
         "type": "Translation",
-        "tags": ["Translation", "Humor", "Culture"]
+        "tags": [
+          "Translation",
+          "Humor",
+          "Culture"
+        ]
       },
       "codeHelper": {
         "title": "Code Assistant",
         "description": "Professional programming assistant proficient in multiple programming languages and frameworks",
         "type": "Programming",
-        "tags": ["Programming", "Debugging", "Explanation"]
+        "tags": [
+          "Programming",
+          "Debugging",
+          "Explanation"
+        ]
       },
       "englishWriting": {
         "title": "English Writing Coach",
         "description": "Provides professional English writing guidance and revision suggestions",
         "type": "Education",
-        "tags": ["Writing", "English", "Education"]
+        "tags": [
+          "Writing",
+          "English",
+          "Education"
+        ]
       },
       "mentalHealth": {
         "title": "Mental Health Counselor",
         "description": "AI assistant providing emotional support and mental health advice",
         "type": "Health",
-        "tags": ["Mental", "Emotional", "Health"]
+        "tags": [
+          "Mental",
+          "Emotional",
+          "Health"
+        ]
       },
       "creativeWriting": {
         "title": "Creative Writing Assistant",
         "description": "Sparks inspiration, assists in creating novels, poetry and various creative content",
         "type": "Writing",
-        "tags": ["Creative", "Writing", "Inspiration"]
+        "tags": [
+          "Creative",
+          "Writing",
+          "Inspiration"
+        ]
       },
       "dataAnalysis": {
         "title": "Data Analysis Expert",
         "description": "Professional assistant for data analysis, statistics and visualization",
         "type": "Data",
-        "tags": ["Data", "Analysis", "Statistics"]
+        "tags": [
+          "Data",
+          "Analysis",
+          "Statistics"
+        ]
       },
       "travelPlanner": {
         "title": "Travel Planner",
         "description": "Helps plan travel routes, recommend attractions and provide travel advice",
         "type": "Lifestyle",
-        "tags": ["Travel", "Planning", "Advice"]
+        "tags": [
+          "Travel",
+          "Planning",
+          "Advice"
+        ]
       },
       "dietitian": {
         "title": "Health Diet Advisor",
         "description": "Provides balanced dietary advice and healthy recipes",
         "type": "Health",
-        "tags": ["Diet", "Health", "Nutrition"]
+        "tags": [
+          "Diet",
+          "Health",
+          "Nutrition"
+        ]
       },
       "japaneseCoach": {
         "title": "Japanese Learning Coach",
         "description": "Professional Japanese learning guidance and practice partner",
         "type": "Education",
-        "tags": ["Japanese", "Learning", "Language"]
+        "tags": [
+          "Japanese",
+          "Learning",
+          "Language"
+        ]
       }
     }
   },
@@ -427,7 +472,37 @@
       "connectivityCheck": "Connectivity Check",
       "selectModelToTest": "Select a model to test connectivity",
       "availableModels": "Available Models",
-      "enableModel": "Enable this model in chat"
+      "enableModel": "Enable this model in chat",
+      "addNew": "Add",
+      "addNewProvider": "Add New Provider",
+      "addProviderDesc": "Add a custom LLM provider, fill in the required configuration.",
+      "providerId": "Provider ID",
+      "providerIdPlaceholder": "e.g.: openai, anthropic",
+      "enableStatus": "Enable Status",
+      "fillRequiredInfo": "Please fill in required information",
+      "providerRequired": "Provider cannot be empty, e.g. openai",
+      "addProviderSuccess": "Add Successful",
+      "addProviderSuccessDesc": "Provider {provider} has been added",
+      "addProviderFailed": "Add Failed",
+      "deleteProvider": "Delete Provider",
+      "deleteProviderSuccess": "Delete Successful",
+      "deleteProviderSuccessDesc": "Provider {provider} has been deleted",
+      "deleteProviderFailed": "Delete Failed",
+      "confirmDeleteProvider": "Confirm Delete",
+      "confirmDeleteProviderDesc": "Are you sure you want to delete provider \"{provider}\"? This action cannot be undone and all related model configurations will also be deleted.",
+      "getApiKey": "Get API Key",
+      "modelList": "Model List",
+      "customGroup": "Custom Group",
+      "editModel": "Edit Model",
+      "addModel": "Add Model",
+      "editModelDesc": "Edit custom model",
+      "addModelDesc": "Add custom model",
+      "updateSuccess": "Update Successful",
+      "updateSuccessDesc": "Model has been updated successfully",
+      "updateFailed": "Update Failed",
+      "addFailed": "Add Failed",
+      "deleteModelSuccess": "Model has been deleted successfully",
+      "confirmDeleteModelDesc": "Are you sure you want to delete this model? This action cannot be undone."
     },
     "localModel": {
       "serviceNotResponding": "Service Not Responding",
@@ -529,7 +604,16 @@
     "about": {
       "description": "A simple and easy-to-use, locally deployed LLM tool.",
       "star": "Star",
-      "accelerate": "Accelerate development"
+      "accelerate": "Accelerate development",
+      "phoneNumber": "Phone Number",
+      "email": "Email"
     }
+  },
+  "ollama": {
+    "startTimeout": "Start timeout",
+    "startFailed": "Start failed",
+    "stopTimeout": "Stop timeout",
+    "stopFailed": "Stop failed",
+    "unknownError": "Unknown error"
   }
 }

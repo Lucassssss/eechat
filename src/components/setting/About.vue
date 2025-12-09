@@ -18,23 +18,23 @@ const copyToClipboard = (text: string, type: string) => {
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      // 根据复制的内容类型设置对应按钮的图标为 Check
-      if (type === "电话号码") {
+      // Set corresponding button icon to Check based on content type
+      if (type === "phone") {
         phoneButtonIcon.value = "check"
-        // 2秒后恢复为 Copy 图标
+        // Reset to Copy icon after 2 seconds
         setTimeout(() => {
           phoneButtonIcon.value = "copy"
         }, 2000)
-      } else if (type === "邮箱") {
+      } else if (type === "email") {
         emailButtonIcon.value = "check"
-        // 2秒后恢复为 Copy 图标
+        // Reset to Copy icon after 2 seconds
         setTimeout(() => {
           emailButtonIcon.value = "copy"
         }, 2000)
       }
     })
     .catch((err) => {
-      console.error("复制失败:", err)
+      console.error("Copy failed:", err)
     })
 }
 </script>
@@ -79,7 +79,7 @@ const copyToClipboard = (text: string, type: string) => {
           <Button
             size="sm"
             variant="outline"
-            @click="copyToClipboard('18693098002', '电话号码')"
+            @click="copyToClipboard('18693098002', 'phone')"
           >
             <Copy v-if="phoneButtonIcon === 'copy'"></Copy>
             <Check v-else class="text-green-500"></Check>
@@ -92,7 +92,7 @@ const copyToClipboard = (text: string, type: string) => {
           <Button
             size="sm"
             variant="outline"
-            @click="copyToClipboard('hi@9tharts.com', '邮箱')"
+            @click="copyToClipboard('hi@9tharts.com', 'email')"
           >
             <Copy v-if="emailButtonIcon === 'copy'"></Copy>
             <Check v-else class="text-green-500"></Check>
