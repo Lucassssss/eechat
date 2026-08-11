@@ -9,7 +9,9 @@ export const useSpeechStore = defineStore('speech', () => {
   const currentText = ref('')
   
   // 当前使用的语音类型（system、volcano 或 edge-tts）
-  const speechType = ref<'system' | 'volcano' | 'edge-tts'>('system')
+  const speechType = ref<'system' | 'volcano' | 'edge-tts'>(
+    (localStorage.getItem('tts_engine') as 'system' | 'volcano' | 'edge-tts') || 'volcano'
+  )
   
   // 音频URL（用于分析频谱）
   const audioUrl = ref('')
@@ -18,7 +20,7 @@ export const useSpeechStore = defineStore('speech', () => {
   const selectedVoice = ref('')
   
   // 开始播放语音
-  const startSpeaking = (text: string, type: 'system' | 'volcano' | 'edge-tts' = 'system', url: string = '') => {
+  const startSpeaking = (text: string, type: 'system' | 'volcano' | 'edge-tts' = 'volcano', url: string = '') => {
     currentText.value = text
     speechType.value = type
     audioUrl.value = url

@@ -1,0 +1,142 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic:
+      - generic [ref=e6]:
+        - link "新闻" [ref=e7] [cursor=pointer]:
+          - /url: http://news.baidu.com
+        - link "hao123" [ref=e8] [cursor=pointer]:
+          - /url: https://www.hao123.com?src=from_pc
+        - link "地图" [ref=e9] [cursor=pointer]:
+          - /url: http://map.baidu.com
+        - link "贴吧" [ref=e10] [cursor=pointer]:
+          - /url: http://tieba.baidu.com/
+        - link "视频" [ref=e11] [cursor=pointer]:
+          - /url: https://haokan.baidu.com/?sfrom=baidu-top
+        - link "图片" [ref=e12] [cursor=pointer]:
+          - /url: http://image.baidu.com/
+        - link "网盘" [ref=e13] [cursor=pointer]:
+          - /url: https://pan.baidu.com?from=1026962h
+        - link "文库" [ref=e14] [cursor=pointer]:
+          - /url: https://wenku.baidu.com/?fr=bdpcindex
+        - link "文心" [ref=e15] [cursor=pointer]:
+          - /url: https://chat.baidu.com/search?isShowHello=1&pd=csaitab&setype=csaitab&extParamsJson=%7B%22enter_type%22%3A%22home_tab%22%7D
+        - link "百度搭子" [ref=e16] [cursor=pointer]:
+          - /url: https://dumate.cn?track=bdsy
+        - link "更多" [ref=e19] [cursor=pointer]:
+          - /url: http://www.baidu.com/more/
+      - generic [ref=e20]:
+        - generic [ref=e21] [cursor=pointer]: 设置
+        - link "登录" [ref=e22] [cursor=pointer]:
+          - /url: https://passport.baidu.com/v2/?login&tpl=mn&u=http%3A%2F%2Fwww.baidu.com%2F&sms=5
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic:
+          - link "点击一下，了解更多":
+            - /url: //www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6%E7%83%AD%E6%90%9C&sa=ire_dl_gh_logo_texing&rsv_dl=igh_logo_pcs
+      - generic [ref=e32]:
+        - generic [ref=e35]:
+          - textbox "这个暑期解锁宝藏中国" [active] [ref=e37]
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e42] [cursor=pointer]
+              - generic [ref=e51]:
+                - generic [ref=e52] [cursor=pointer]
+                - generic [ref=e57] [cursor=pointer]
+            - button "百度一下" [ref=e64] [cursor=pointer]
+        - link "复杂问题就找文心助手，深入思考回答更优 " [ref=e68] [cursor=pointer]:
+          - /url: https://chat.baidu.com/search?extParams=%7B%22enter_type%22%3A%22home_operate%22%7D&isShowHello=1
+          - generic [ref=e70]:
+            - generic [ref=e71]: 复杂问题就找文心助手，深入思考回答更优
+            - generic [ref=e72]: 
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - link "百度热搜":
+            - /url: https://top.baidu.com/board?platform=pc&sa=pcindex_entry
+            - generic "百度热搜" [ref=e77] [cursor=pointer]: 
+          - generic [ref=e78] [cursor=pointer]:
+            - generic [ref=e79]: 
+            - text: 换一换
+        - list:
+          - listitem [ref=e80]:
+            - link " 老百姓的事情是最重要的事情" [ref=e81] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E8%80%81%E7%99%BE%E5%A7%93%E7%9A%84%E4%BA%8B%E6%83%85%E6%98%AF%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B%E6%83%85&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e82]: 
+              - text: 老百姓的事情是最重要的事情
+          - listitem [ref=e84]:
+            - link "5 台风白海豚即将迎头撞上冷空气" [ref=e85] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E5%8F%B0%E9%A3%8E%E7%99%BD%E6%B5%B7%E8%B1%9A%E5%8D%B3%E5%B0%86%E8%BF%8E%E5%A4%B4%E6%92%9E%E4%B8%8A%E5%86%B7%E7%A9%BA%E6%B0%94&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e86]: "5"
+              - text: 台风白海豚即将迎头撞上冷空气
+            - generic [ref=e87]: 新
+          - listitem [ref=e88]:
+            - link "1 帕拉梅拉价格跌破百万" [ref=e89] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E5%B8%95%E6%8B%89%E6%A2%85%E6%8B%89%E4%BB%B7%E6%A0%BC%E8%B7%8C%E7%A0%B4%E7%99%BE%E4%B8%87&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e90]: "1"
+              - text: 帕拉梅拉价格跌破百万
+            - generic [ref=e91]: 热
+          - listitem [ref=e92]:
+            - link "6 俄少女被诱骗进缅甸电诈园 游河逃生" [ref=e93] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E4%BF%84%E5%B0%91%E5%A5%B3%E8%A2%AB%E8%AF%B1%E9%AA%97%E8%BF%9B%E7%BC%85%E7%94%B8%E7%94%B5%E8%AF%88%E5%9B%AD+%E6%B8%B8%E6%B2%B3%E9%80%83%E7%94%9F&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e94]: "6"
+              - text: 俄少女被诱骗进缅甸电诈园 游河逃生
+            - generic [ref=e95]: 新
+          - listitem [ref=e96]:
+            - link "2 男子瞒着妻子5年给父母转账50万" [ref=e97] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E7%94%B7%E5%AD%90%E7%9E%92%E7%9D%80%E5%A6%BB%E5%AD%905%E5%B9%B4%E7%BB%99%E7%88%B6%E6%AF%8D%E8%BD%AC%E8%B4%A650%E4%B8%87&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e98]: "2"
+              - text: 男子瞒着妻子5年给父母转账50万
+          - listitem [ref=e100]:
+            - link "7 董宇辉1000万成立新公司" [ref=e101] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E8%91%A3%E5%AE%87%E8%BE%891000%E4%B8%87%E6%88%90%E7%AB%8B%E6%96%B0%E5%85%AC%E5%8F%B8&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e102]: "7"
+              - text: 董宇辉1000万成立新公司
+            - generic [ref=e103]: 新
+          - listitem [ref=e104]:
+            - link "3 汛期出游留意“三个看”" [ref=e105] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E6%B1%9B%E6%9C%9F%E5%87%BA%E6%B8%B8%E7%95%99%E6%84%8F%E2%80%9C%E4%B8%89%E4%B8%AA%E7%9C%8B%E2%80%9D&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e106]: "3"
+              - text: 汛期出游留意“三个看”
+          - listitem [ref=e108]:
+            - link "8 《我的前半生》翻红" [ref=e109] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E3%80%8A%E6%88%91%E7%9A%84%E5%89%8D%E5%8D%8A%E7%94%9F%E3%80%8B%E7%BF%BB%E7%BA%A2&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e110]: "8"
+              - text: 《我的前半生》翻红
+          - listitem [ref=e112]:
+            - link "4 宁波公安回应“网红雅典娜遇害”" [ref=e113] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E5%AE%81%E6%B3%A2%E5%85%AC%E5%AE%89%E5%9B%9E%E5%BA%94%E2%80%9C%E7%BD%91%E7%BA%A2%E9%9B%85%E5%85%B8%E5%A8%9C%E9%81%87%E5%AE%B3%E2%80%9D&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e114]: "4"
+              - text: 宁波公安回应“网红雅典娜遇害”
+            - generic [ref=e115]: 新
+          - listitem [ref=e116]:
+            - link "9 岳云鹏瘦了20斤" [ref=e117] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E5%B2%B3%E4%BA%91%E9%B9%8F%E7%98%A6%E4%BA%8620%E6%96%A4&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e118]: "9"
+              - text: 岳云鹏瘦了20斤
+    - generic [ref=e121]:
+      - paragraph [ref=e122]:
+        - link "关于百度" [ref=e123] [cursor=pointer]:
+          - /url: //home.baidu.com
+      - paragraph [ref=e124]:
+        - link "About Baidu" [ref=e125] [cursor=pointer]:
+          - /url: http://ir.baidu.com
+      - paragraph [ref=e126]:
+        - link "使用百度前必读" [ref=e127] [cursor=pointer]:
+          - /url: //www.baidu.com/duty
+      - paragraph [ref=e128]:
+        - link "帮助中心" [ref=e129] [cursor=pointer]:
+          - /url: https://help.baidu.com/question?prod_id=1
+      - paragraph [ref=e130]:
+        - link "企业推广" [ref=e131] [cursor=pointer]:
+          - /url: https://e.baidu.com/?refer=1271
+      - paragraph [ref=e132]:
+        - link "京公网安备11000002000001号" [ref=e133] [cursor=pointer]:
+          - /url: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000001
+      - paragraph [ref=e134]:
+        - link "京ICP证030173号" [ref=e135] [cursor=pointer]:
+          - /url: https://beian.miit.gov.cn
+      - paragraph [ref=e136]: 互联网新闻信息服务许可证11220180008
+      - generic [ref=e137]: 
+      - generic [ref=e138]: 
+  - generic [ref=e139]:
+    - generic [ref=e140] [cursor=pointer]
+    - generic [ref=e143] [cursor=pointer]

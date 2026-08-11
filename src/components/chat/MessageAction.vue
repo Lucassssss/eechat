@@ -6,11 +6,14 @@ import { Volume2, VolumeX, Copy, Check, Headphones } from 'lucide-vue-next'
 import { useVolcanoTTS } from '@/composables/useVolcanoTTS'
 import { useSpeechStore } from '@/stores/speech'
 import { ttsApi } from '@/api/request'
+import { useToast } from '@/components/ui/toast/use-toast'
 
 const props = defineProps<{
   message: string,
   role: string
 }>()
+
+const { toast } = useToast()
 
 onMounted(() => {
   const localVoice = localStorage.getItem('tts-voice')
@@ -32,6 +35,42 @@ const { speak: volcanoSpeak, stop: volcanoStop, isPlaying } = useVolcanoTTS()
 
 // 引入全局语音状态
 const speechStore = useSpeechStore()
+
+// 计算是否任意语音引擎正在播放
+const isAnySpeaking = computed(() => isSpeaking.value || isVolcanoSpeaking.value || isEdgeTtsSpeaking.value)
+
+// 统一朗读点击处理函数
+const handleSpeak = () => {
+  // 如果当前正在播放，停止所有播放
+  if (isAnySpeaking.value) {
+    if (isSpeaking.value) stopSpeaking()
+    if (isVolcanoSpeaking.value) {
+      volcanoStop()
+      isVolcanoSpeaking.value = false
+      speechStore.stopSpeaking()
+    }
+    if (isEdgeTtsSpeaking.value) stopEdgeTts()
+    return
+  }
+
+  const engine = localStorage.getItem('tts_engine') || 'volcano'
+  if (engine === 'volcano') {
+    const appId = localStorage.getItem('volcano_app_id')
+    const token = localStorage.getItem('volcano_token')
+    if (!appId || !token) {
+      toast({
+        title: t('settings.tts.missingVolcanoConfig', '请先在【设置 -> 语音】中配置火山引擎 App ID 和 Access Token'),
+        variant: 'destructive'
+      })
+      return
+    }
+    speakWithVolcano()
+  } else if (engine === 'edge-tts') {
+    speakWithEdgeTts()
+  } else {
+    speak()
+  }
+}
 
 // 清理HTML标签，获取纯文本内容
 const getPlainText = (html) => {
@@ -147,25 +186,6 @@ const speakWithVolcano = async () => {
     speechStore.stopSpeaking()
   }
 }
-
-// 使用Edge TTS朗读
-// const speakWithEdgeTts = async () => {
-//   // 如果系统TTS或火山引擎TTS正在播放，先停止它
-//   if (isSpeaking.value) {
-//     stopSpeaking()
-//   }
-  
-//   if (isVolcanoSpeaking.value) {
-//     await volcanoStop()
-//     isVolcanoSpeaking.value = false
-//     speechStore.stopSpeaking()
-//   }
-  
-//   if (isEdgeTtsSpeaking.value) {
-//     stopEdgeTts()
-//     return
-//   }
-// }
 
 // 添加一个变量来保存当前播放的音频实例
 let currentEdgeTtsAudio = null
@@ -309,35 +329,13 @@ onBeforeUnmount(() => {
       variant="outline" 
       size="icon" 
       class="h-8 w-8" 
-      @click="speakWithEdgeTts" 
-      :title="isEdgeTtsSpeaking ? t('chat.stopEdgeTtsSpeaking') : t('chat.speakWithEdgeTts')"
+      @click="handleSpeak" 
+      :title="isAnySpeaking ? t('chat.stopSpeaking', '停止朗读') : t('chat.speakWithVolcano', '火山引擎朗读')"
     >
-      <Headphones v-if="!isEdgeTtsSpeaking" class="h-4 w-4" />
-      <VolumeX v-else class="h-4 w-4" />
+      <Headphones v-if="!isAnySpeaking" class="h-4 w-4" />
+      <VolumeX v-else class="h-4 w-4 text-primary animate-pulse" />
     </Button>
-    
-    <!-- <Button 
-      variant="outline" 
-      size="icon" 
-      class="h-8 w-8" 
-      @click="speakWithVolcano" 
-      :title="isVolcanoSpeaking ? t('chat.stopVolcanoSpeaking') : t('chat.speakWithVolcano')"
-    >
-      <Headphones v-if="!isVolcanoSpeaking" class="h-4 w-4" />
-      <VolumeX v-else class="h-4 w-4" />
-    </Button>
-    
-    <Button 
-      variant="outline" 
-      size="icon" 
-      class="h-8 w-8" 
-      @click="speak" 
-      :title="isSpeaking ? t('chat.stopSpeaking') : t('chat.speak')"
-    >
-      <Volume2 v-if="!isSpeaking" class="h-4 w-4" />
-      <VolumeX v-else class="h-4 w-4" />
-    </Button>
-     -->
+
     <Button 
       variant="outline" 
       size="icon" 

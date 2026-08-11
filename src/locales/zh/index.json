@@ -475,12 +475,26 @@
 
     "tts": {
       "title": "文本转语音设置",
+      "engine": "默认语音引擎",
+      "volcanoEngine": "火山引擎 TTS",
+      "edgeEngine": "Edge TTS",
+      "systemEngine": "系统默认语音",
+      "appId": "App ID",
+      "appIdPlaceholder": "请输入火山引擎 App ID",
+      "token": "Access Token",
+      "tokenPlaceholder": "请输入火山引擎 Access Token",
+      "voiceType": "音色 (Voice Type)",
+      "voiceTypePlaceholder": "例如 zh_female_wanwanxiaohe_moon_bigtts",
+      "volcanoConfigTitle": "火山引擎配置",
+      "volcanoConfigDesc": "使用字节跳动火山引擎 TTS 服务，需要配置 App ID 和 Access Token",
+      "edgeConfigTitle": "Edge TTS 配置",
       "voice": "音色",
       "refresh": "刷新",
       "currentLanguageVoices": "当前语言可用音色",
       "selectVoice": "选择音色",
       "testTextTitle": "测试文本",
-      "testText": "eechat 真棒，我很喜欢！"
+      "testText": "eechat 真棒，我很喜欢！",
+      "missingVolcanoConfig": "请先在【设置 -> 语音】中配置火山引擎 App ID 和 Access Token"
     },
     "proxy": {
       "title": "代理设置",

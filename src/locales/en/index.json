@@ -469,13 +469,27 @@
       "tts": "Text to speech"
     },
     "tts": {
-      "title": "Text to Speech settings",
+      "title": "Text to Speech Settings",
+      "engine": "Default Speech Engine",
+      "volcanoEngine": "Volcengine TTS",
+      "edgeEngine": "Edge TTS",
+      "systemEngine": "System Voice",
+      "appId": "App ID",
+      "appIdPlaceholder": "Enter Volcengine App ID",
+      "token": "Access Token",
+      "tokenPlaceholder": "Enter Volcengine Access Token",
+      "voiceType": "Voice Type",
+      "voiceTypePlaceholder": "e.g. zh_female_wanwanxiaohe_moon_bigtts",
+      "volcanoConfigTitle": "Volcengine Configuration",
+      "volcanoConfigDesc": "ByteDance Volcengine TTS requires App ID and Access Token",
+      "edgeConfigTitle": "Edge TTS Configuration",
       "voice": "Voice",
       "refresh": "Refresh",
       "currentLanguageVoices": "Current Language Voices",
       "selectVoice": "Select Voice",
       "testTextTitle": "Test Text",
-      "testText": "eechat is great, i like it!"
+      "testText": "eechat is great, I like it!",
+      "missingVolcanoConfig": "Please configure Volcengine App ID and Access Token in [Settings -> Voice] first"
     },
     "proxy": {
       "title": "Proxy Settings",
