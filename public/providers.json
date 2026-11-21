@@ -533,6 +533,19 @@
         "docs": "https://cloud.tencent.com/document/product/1772",
         "models": "https://console.cloud.tencent.com/tione/v2/aimarket"
       }
+    },
+    "321ai": {
+      "name": "321AI",
+      "state": false,
+      "api": {
+        "url": "https://321ai.cc/v1"
+      },
+      "websites": {
+        "official": "https://321ai.cc",
+        "apiKey": "https://321ai.cc",
+        "docs": "https://321ai.cc/guides",
+        "models": "https://321ai.cc/api/public/model-prices"
+      }
     }
   },
   "message": "success"
